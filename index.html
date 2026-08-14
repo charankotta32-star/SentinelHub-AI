@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SentinelHub AI // Liquid Glass v3.0</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Canvas Confetti for Healing Victory -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            min-height: 100vh;
+            color: #0F172A;
+            overflow-x: hidden;
+            position: relative;
+            background: #0B0F19;
+        }
+
+        /* 🌿 Sun-Dappled Scenic Canvas */
+        .scenic-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background:
+                linear-gradient(180deg, rgba(15, 23, 42, 0.48) 0%, rgba(15, 23, 42, 0.68) 100%),
+                url('https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?q=80&w=2000&auto=format&fit=crop') center/cover no-repeat;
+            z-index: 0;
+            filter: saturate(125%) contrast(105%);
+        }
+
+        /* 💡 Interactive Mouse Spotlight Glow on Glass */
+        .spotlight-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 1;
+            background: radial-gradient(800px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 255, 255, 0.14), transparent 40%);
+            transition: background 0.1s ease;
+        }
+
+        /* 🍏 VisionOS Grand Liquid Glass Monolith */
+        .vision-monolith {
+            background: rgba(255, 255, 255, 0.74);
+            backdrop-filter: blur(45px) saturate(210%);
+            -webkit-backdrop-filter: blur(45px) saturate(210%);
+            border: 1px solid rgba(255, 255, 255, 0.88);
+            border-radius: 38px;
+            box-shadow:
+                0 30px 90px rgba(0, 0, 0, 0.4),
+                0 2px 8px rgba(0, 0, 0, 0.05),
+                inset 0 1.5px 2px rgba(255, 255, 255, 1),
+                inset 0 -1.5px 2px rgba(0, 0, 0, 0.04);
+        }
+
+        /* 📱 Samsung One UI Tactile Squircle Card with 3D Tilt */
+        .oneui-card {
+            background: rgba(255, 255, 255, 0.68);
+            backdrop-filter: blur(24px) saturate(180%);
+            -webkit-backdrop-filter: blur(24px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.95);
+            border-radius: 28px;
+            box-shadow:
+                0 10px 25px rgba(0, 0, 0, 0.04),
+                inset 0 1px 1.5px rgba(255, 255, 255, 1);
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .oneui-card:hover {
+            background: rgba(255, 255, 255, 0.86);
+            transform: translateY(-4px) scale(1.01);
+            box-shadow:
+                0 20px 40px rgba(0, 0, 0, 0.1),
+                inset 0 1px 2px rgba(255, 255, 255, 1);
+        }
+
+        /* Floating Dynamic Island Nav */
+        .island-nav {
+            background: rgba(255, 255, 255, 0.60);
+            backdrop-filter: blur(28px);
+            -webkit-backdrop-filter: blur(28px);
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            border-radius: 40px;
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.1), inset 0 1px 1px rgba(255, 255, 255, 0.95);
+        }
+
+        .tab-btn.active {
+            background: #FFFFFF;
+            color: #4338CA;
+            box-shadow: 0 4px 16px rgba(67, 56, 202, 0.22);
+            border-color: rgba(255, 255, 255, 1);
+            transform: scale(1.03);
+        }
+
+        /* Glowing Tactile Buttons */
+        .btn-glow {
+            background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+            color: #FFFFFF;
+            box-shadow: 0 8px 24px rgba(16, 185, 129, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.5);
+            transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .btn-glow:hover {
+            transform: scale(1.03);
+            box-shadow: 0 12px 32px rgba(16, 185, 129, 0.6);
+        }
+        .btn-glow:active { transform: scale(0.96); }
+
+        .mono { font-family: 'JetBrains Mono', monospace; }
+    </style>
+</head>
+<body class="p-4 md:p-8 flex items-center justify-center min-h-screen">
+
+    <!-- Scenic Background Backdrop -->
+    <div class="scenic-bg"></div>
+    <!-- Mouse Light Spotlight -->
+    <div class="spotlight-overlay" id="spotlight"></div>
+
+    <!-- 🪟 THE GRAND GLASS MONOLITH CONTAINER -->
+    <div class="vision-monolith w-full max-w-7xl p-6 md:p-10 relative z-10">
+
+        <!-- TOP BAR: BRANDING & DYNAMIC PILL -->
+        <header class="flex flex-col md:flex-row justify-between items-center mb-8 gap-4 border-b border-black/5 pb-6">
+            <div class="flex items-center gap-3.5">
+                <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-indigo-600 via-indigo-500 to-emerald-400 flex items-center justify-center text-white font-black text-2xl shadow-lg shadow-indigo-500/30 animate-pulse">
+                    ✦
+                </div>
+                <div>
+                    <div class="flex items-center gap-2.5">
+                        <h1 class="text-2xl font-black tracking-tight text-slate-900">SentinelHub AI</h1>
+                        <span class="px-3 py-0.5 rounded-full text-xs font-bold bg-indigo-600/10 text-indigo-700 border border-indigo-200 shadow-sm">VisionOS × One UI v3.0</span>
+                    </div>
+                    <p class="text-xs text-slate-600 font-semibold">Autonomous Web Intelligence & Opportunity Radar • Powered by Bright Data</p>
+                </div>
+            </div>
+
+            <!-- Profile & Live Status -->
+            <div class="flex items-center gap-3">
+                <span class="px-3.5 py-1.5 rounded-full text-xs font-bold bg-emerald-500/15 text-emerald-800 border border-emerald-300/60 shadow-sm flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span> Live Intelligence Feed
+                </span>
+                <span class="text-xs text-slate-700 font-bold bg-white/80 px-4 py-1.5 rounded-full border border-white/80 shadow-sm">
+                    👤 <b>Charan Kotta (9.6 CGPA)</b>
+                </span>
+            </div>
+        </header>
+
+        <!-- TOP 4 SQUIRCLE TILES -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+            <div class="oneui-card p-5 text-center">
+                <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-1">Sentinel Health</p>
+                <h2 id="health-metric" class="text-4xl font-extrabold text-emerald-600 tracking-tight transition-all duration-500">97%</h2>
+                <span id="health-badge" class="inline-block mt-2 px-3 py-0.5 text-xs font-bold rounded-full bg-emerald-100 text-emerald-800">OPTIMAL</span>
+            </div>
+            <div class="oneui-card p-5 text-center">
+                <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-1">Scraper Pipeline</p>
+                <h2 id="scraper-ver" class="text-4xl font-extrabold text-indigo-600 tracking-tight">v2.0</h2>
+                <span class="inline-block mt-2 px-3 py-0.5 text-xs font-bold rounded-full bg-indigo-100 text-indigo-800">AUTO-HEALED</span>
+            </div>
+            <div class="oneui-card p-5 text-center">
+                <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-1">Monitored Portals</p>
+                <h2 class="text-4xl font-extrabold text-slate-800 tracking-tight">18</h2>
+                <span class="inline-block mt-2 px-3 py-0.5 text-xs font-bold rounded-full bg-slate-100 text-slate-700">100% UPTIME</span>
+            </div>
+            <div class="oneui-card p-5 text-center">
+                <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-1">Conflict Engine</p>
+                <h2 class="text-4xl font-extrabold text-amber-600 tracking-tight">1 Alert</h2>
+                <span class="inline-block mt-2 px-3 py-0.5 text-xs font-bold rounded-full bg-amber-100 text-amber-800">COLLISION ACTIVE</span>
+            </div>
+        </div>
+
+        <!-- 🌟 FLOATING DYNAMIC ISLAND PILL NAVBAR -->
+        <div class="flex justify-center mb-8">
+            <div class="island-nav p-1.5 flex flex-wrap justify-center gap-1.5">
+                <button onclick="switchTab('dashboard')" id="tab-dashboard" class="tab-btn active px-4 py-2 rounded-full text-xs font-bold transition-all border border-transparent">✦ Sentinel AI</button>
+                <button onclick="switchTab('hackathons')" id="tab-hackathons" class="tab-btn px-4 py-2 rounded-full text-xs font-bold text-slate-600 transition-all border border-transparent">🏆 Hackathons</button>
+                <button onclick="switchTab('grants')" id="tab-grants" class="tab-btn px-4 py-2 rounded-full text-xs font-bold text-slate-600 transition-all border border-transparent">🔬 Grants</button>
+                <button onclick="switchTab('internships')" id="tab-internships" class="tab-btn px-4 py-2 rounded-full text-xs font-bold text-slate-600 transition-all border border-transparent">💼 Internships</button>
+                <button onclick="switchTab('outreach')" id="tab-outreach" class="tab-btn px-4 py-2 rounded-full text-xs font-bold text-slate-600 transition-all border border-transparent">🚀 Outreach</button>
+                <button onclick="switchTab('sentinel')" id="tab-sentinel" class="tab-btn px-4 py-2 rounded-full text-xs font-bold text-slate-600 transition-all border border-transparent">📡 Self-Healing</button>
+            </div>
+        </div>
+
+        <!-- ================================================================= -->
+        <!-- TAB 1: MAIN DASHBOARD -->
+        <!-- ================================================================= -->
+        <div id="content-dashboard" class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <!-- Left AI Insight Card -->
+            <div class="oneui-card p-7 flex flex-col justify-between">
+                <div>
+                    <span class="px-3 py-1 rounded-full text-xs font-bold bg-indigo-100 text-indigo-700">✦ Sentinel AI Insight</span>
+                    <h2 class="text-3xl font-extrabold text-slate-900 mt-4 mb-2 tracking-tight leading-tight">
+                        Discovery<br><span class="text-emerald-600">That Never</span><br>Breaks.
+                    </h2>
+                    <p class="text-xs text-slate-600 leading-relaxed mb-6 font-medium">
+                        Converts dynamic government and tech portals into verified, structured opportunities. Scrapers detect DOM drift and heal automatically.
+                    </p>
+                    <div class="flex gap-3">
+                        <button onclick="switchTab('sentinel')" class="btn-glow text-xs font-bold px-5 py-2.5 rounded-full">
+                            Launch Engine ➔
+                        </button>
+                        <button onclick="switchTab('grants')" class="bg-white/80 hover:bg-white text-slate-800 border border-slate-200 text-xs font-bold px-4 py-2.5 rounded-full shadow-sm transition-all">
+                            View Grants
+                        </button>
+                    </div>
+                </div>
+
+                <div class="bg-slate-900/95 backdrop-blur-md rounded-2xl p-4 mt-6 text-xs mono text-slate-300 shadow-inner">
+                    <p class="text-cyan-400 font-bold mb-1">// System Status:</p>
+                    <p id="ai-insight-log" class="text-slate-400">All scrapers verified. Zero DOM schema drift.</p>
+                </div>
+            </div>
+
+            <!-- Right Spline Chart Card -->
+            <div class="oneui-card p-7 lg:col-span-2">
+                <div class="flex justify-between items-center mb-3">
+                    <div>
+                        <h3 class="text-lg font-bold text-slate-900">Ingestion Stream & Scraper Health</h3>
+                        <p class="text-xs text-slate-500 font-medium">Live telemetry via Bright Data Web Unlocker</p>
+                    </div>
+                    <span class="text-xs font-bold px-3 py-1 rounded-full bg-indigo-100 text-indigo-700">Live Feed</span>
+                </div>
+                <div class="h-64 w-full">
+                    <canvas id="oneuiChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================================================================= -->
+        <!-- TAB 2: HACKATHONS (WITH SMART CONFLICT ALERT) -->
+        <!-- ================================================================= -->
+        <div id="content-hackathons" class="hidden space-y-6">
+            <div class="bg-amber-500/15 border border-amber-500/30 rounded-3xl p-5 flex items-start gap-4 backdrop-blur-md">
+                <span class="text-2xl">⚠️</span>
+                <div>
+                    <h4 class="text-amber-900 font-bold text-sm">Smart Schedule Collision Detected!</h4>
+                    <p class="text-xs text-amber-950/80 mt-0.5 leading-relaxed">
+                        <b>EDGE NOVA'26 (Aug 27–28)</b> coincides with your internal <b>Semester 3 Class Test (CT) window</b>. Secure prior On-Duty (OD) approval!
+                    </p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="oneui-card p-6">
+                    <span class="px-3 py-1 rounded-full text-xs font-bold bg-indigo-100 text-indigo-700">24-HR NATIONAL HACKATHON</span>
+                    <h3 class="text-xl font-bold text-slate-900 mt-3 mb-1">EDGE NOVA'26</h3>
+                    <p class="text-xs text-slate-500 mb-3">Organizer: Dept. of Computational Intelligence (CINTEL) @ SRM KTR</p>
+                    <p class="text-base font-bold text-emerald-600 mb-4">Prize Pool: ₹40,000+ | Official OD Clearance</p>
+                    <div class="flex gap-2">
+                        <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800">Team Registered</span>
+                        <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-amber-100 text-amber-800">Schedule Clash</span>
+                    </div>
+                </div>
+
+                <div class="oneui-card p-6">
+                    <span class="px-3 py-1 rounded-full text-xs font-bold bg-cyan-100 text-cyan-700">GLOBAL ONLINE HACKATHON</span>
+                    <h3 class="text-xl font-bold text-slate-900 mt-3 mb-1">Into The Scrape-Verse</h3>
+                    <p class="text-xs text-slate-500 mb-3">Organizer: WeMakeDevs & Bright Data</p>
+                    <p class="text-base font-bold text-emerald-600 mb-4">1st Prize: $5,000 NVIDIA DGX AI Supercomputer</p>
+                    <div class="flex gap-2">
+                        <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800">Free Entry</span>
+                        <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-indigo-100 text-indigo-800">5,000 Free Credits</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================================================================= -->
+        <!-- TAB 3: GRANTS (WITH EVIDENCE DRAWER) -->
+        <!-- ================================================================= -->
+        <div id="content-grants" class="hidden space-y-6">
+            <div class="oneui-card p-7">
+                <span class="px-3 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800">GOVERNMENT PROTOTYPE GRANT</span>
+                <h3 class="text-2xl font-bold text-slate-900 mt-3 mb-1">DST NIDHI-PRAYAS Hardware Innovation Scheme</h3>
+                <p class="text-xs text-slate-500 mb-3">Sponsor: Department of Science & Technology (Govt of India)</p>
+                <p class="text-xl font-extrabold text-emerald-600 mb-5">Funding Grant: ₹10,00,000 (Non-Dilutive) | Hard Deadline: 15 October 2026</p>
+
+                <div class="bg-slate-900 rounded-2xl p-5 mono text-xs text-slate-300 space-y-2 shadow-inner">
+                    <p class="text-cyan-400 font-bold text-sm mb-2">🔬 Cryptographic Evidence Chain (Direct Source HTML Proof):</p>
+                    <p class="text-slate-300">• Field: <span class="text-white font-semibold">funding_max</span> ➔ <span class="text-emerald-400 font-bold">₹10,00,000</span> (Quote: "Funding Support: Up to INR 10,00,000 for student-led hardware prototypes.")</p>
+                    <p class="text-slate-300">• Field: <span class="text-white font-semibold">deadline</span> ➔ <span class="text-amber-400 font-bold">2026-10-15</span> (Quote: "Submission Deadline: 15 October 2026 at 17:00 IST.")</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================================================================= -->
+        <!-- TAB 4: INTERNSHIPS -->
+        <!-- ================================================================= -->
+        <div id="content-internships" class="hidden grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="oneui-card p-6">
+                <span class="px-3 py-1 rounded-full text-xs font-bold bg-indigo-100 text-indigo-700">BIG TECH INTERNSHIP</span>
+                <h3 class="text-xl font-bold text-slate-900 mt-3 mb-1">Microsoft Software Engineering Intern 2026</h3>
+                <p class="text-xs text-slate-500 mb-2">Eligibility: B.Tech CSE (≥ 1 semester remaining) | Min CGPA: 8.0</p>
+                <p class="text-base font-bold text-emerald-600 mb-4">Expected Stipend: ₹75,000 – ₹1,00,000 / month</p>
+                <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800">Profile Match: 98% (9.6 CGPA Verified)</span>
+            </div>
+
+            <div class="oneui-card p-6">
+                <span class="px-3 py-1 rounded-full text-xs font-bold bg-purple-100 text-purple-700">GLOBAL FELLOWSHIP</span>
+                <h3 class="text-xl font-bold text-slate-900 mt-3 mb-1">Mitacs Globalink GRI 2027 (Canada 🇨🇦)</h3>
+                <p class="text-xs text-slate-500 mb-2">12-Week Summer Research at Top Canadian Labs (May–Sept 2027)</p>
+                <p class="text-base font-bold text-emerald-600 mb-4">Stipend: ₹3 Lakhs+ | Flights & Housing Paid</p>
+                <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-purple-100 text-purple-800">Deadline: Sept 16, 2026</span>
+            </div>
+        </div>
+
+        <!-- ================================================================= -->
+        <!-- TAB 5: OUTREACH AI -->
+        <!-- ================================================================= -->
+        <div id="content-outreach" class="hidden oneui-card p-7">
+            <h3 class="text-2xl font-bold text-slate-900 mb-1">🚀 1-Click High-Conversion Cold Email Generator</h3>
+            <p class="text-xs text-slate-500 mb-5">Generate tailored 3-sentence outreach pitches for professors and startup founders.</p>
+
+            <button onclick="generatePitch()" class="mb-5 btn-glow text-xs font-bold px-6 py-3 rounded-full">
+                Generate 3-Sentence Pitch ✦
+            </button>
+
+            <div id="pitch-box" class="hidden bg-slate-900 rounded-2xl p-5 text-xs text-slate-200 leading-relaxed mono shadow-xl">
+                <p class="text-cyan-400 font-bold mb-2">Subject: Application for Microsoft SWE / Research Intern — Kotta Charan Ram Sai (9.6 CGPA)</p>
+                <p class="text-slate-300">"Dear Selection Committee / Hiring Lead,</p>
+                <p class="text-slate-300 my-2">I am an 18-year-old B.Tech CSE (AI/ML) student at SRM IST maintaining a 9.6 CGPA and State Rank 2 in AUEET. I operate on an ASUS ROG RTX 5070 workstation and recently built an award-winning offline mmWave radar disaster node (ResQ-Sanjeevini) and self-healing web intelligence pipelines.</p>
+                <p class="text-slate-300">I would love to bring my execution speed in low-latency systems and AI architecture to your team for Summer 2026. Can I share a 60-second video demo of my latest project?"</p>
+            </div>
+        </div>
+
+        <!-- ================================================================= -->
+        <!-- TAB 6: SELF-HEALING CONTROL PLANE -->
+        <!-- ================================================================= -->
+        <div id="content-sentinel" class="hidden oneui-card p-7">
+            <h3 class="text-2xl font-bold text-slate-900 mb-1">📡 Bright Data Self-Healing Control Plane</h3>
+            <p class="text-xs text-slate-500 mb-6">Deterministic Time-Travel Break & Heal Simulator for Hackathon Judges.</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="space-y-3">
+                    <h4 class="text-xs font-bold text-slate-500 uppercase tracking-widest">Demo Triggers</h4>
+                    <button onclick="breakPortal()" class="w-full bg-rose-600 hover:bg-rose-700 text-white font-bold px-5 py-3.5 rounded-2xl shadow-md text-left flex items-center justify-between transition-all">
+                        <span>💥 Break Target Portal (DOM Drift)</span>
+                        <span class="text-xs bg-rose-800 px-2.5 py-1 rounded-lg">Simulate Failure</span>
+                    </button>
+                    <button onclick="healPortal()" class="w-full btn-glow text-white font-bold px-5 py-3.5 rounded-2xl shadow-md text-left flex items-center justify-between transition-all">
+                        <span>🩹 Trigger Bright Data Self-Healing</span>
+                        <span class="text-xs bg-emerald-800 px-2.5 py-1 rounded-lg">Auto-Repair</span>
+                    </button>
+                    <button onclick="resetPortal()" class="w-full bg-white hover:bg-slate-50 text-slate-700 font-bold px-5 py-3 rounded-2xl border border-slate-200 text-center transition-all">
+                        🔄 Reset Pipeline Baseline (97%)
+                    </button>
+                </div>
+
+                <div>
+                    <h4 class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Live Scraper Telemetry Feed</h4>
+                    <div id="event-stream" class="bg-slate-900 rounded-2xl p-4 h-48 overflow-y-auto mono text-xs text-slate-300 space-y-2 shadow-inner">
+                        <p class="text-emerald-400">[00:05:02] Monitoring 18 portals. Extraction health optimal (97%).</p>
+                        <p class="text-slate-400">[00:05:03] Bright Data Web Unlocker proxy active on all targets.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- SCRIPT FOR SPOTLIGHT, CHARTS, ANIMATIONS & CONFETTI -->
+    <script>
+        // 💡 Interactive Spotlight Cursor Physics
+        window.addEventListener('mousemove', (e) => {
+            document.documentElement.style.setProperty('--mouse-x', `${e.clientX}px`);
+            document.documentElement.style.setProperty('--mouse-y', `${e.clientY}px`);
+        });
+
+        function switchTab(tabId) {
+            const tabs = ['dashboard', 'hackathons', 'grants', 'internships', 'outreach', 'sentinel'];
+            tabs.forEach(t => {
+                document.getElementById('content-' + t).classList.add('hidden');
+                document.getElementById('tab-' + t).classList.remove('active');
+                document.getElementById('tab-' + t).classList.add('text-slate-600');
+            });
+            document.getElementById('content-' + tabId).classList.remove('hidden');
+            document.getElementById('tab-' + tabId).classList.add('active');
+            document.getElementById('tab-' + tabId).classList.remove('text-slate-600');
+        }
+
+        // Chart.js Setup
+        const ctx = document.getElementById('oneuiChart').getContext('2d');
+        const oneuiChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['May', 'Jun', 'Jul', 'Aug 5', 'Aug 10', 'Today (Aug 15)'],
+                datasets: [{
+                    label: 'Extraction Health (%)',
+                    data: [94, 95, 96, 98, 97, 97],
+                    borderColor: '#4F46E5',
+                    backgroundColor: 'rgba(79, 70, 229, 0.12)',
+                    fill: true,
+                    tension: 0.45,
+                    borderWidth: 3.5,
+                    pointBackgroundColor: '#4338CA',
+                    pointBorderColor: '#FFFFFF',
+                    pointBorderWidth: 2,
+                    pointRadius: 6
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { display: false } },
+                scales: {
+                    y: {
+                        min: 0, max: 110,
+                        grid: { color: 'rgba(0, 0, 0, 0.05)' },
+                        ticks: { color: '#64748B', font: { size: 11 } }
+                    },
+                    x: {
+                        grid: { display: false },
+                        ticks: { color: '#64748B', font: { size: 11 } }
+                    }
+                }
+            }
+        });
+
+        function animateValue(id, start, end, duration, colorClass, badgeText, badgeBgClass) {
+            const obj = document.getElementById(id);
+            let startTimestamp = null;
+            const step = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                obj.innerHTML = Math.floor(progress * (end - start) + start) + '%';
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                } else {
+                    obj.innerHTML = end + '%';
+                    obj.className = 'text-4xl font-extrabold tracking-tight transition-all duration-500 ' + colorClass;
+                    document.getElementById('health-badge').innerText = badgeText;
+                    document.getElementById('health-badge').className = 'inline-block mt-2 px-3 py-0.5 text-xs font-bold rounded-full ' + badgeBgClass;
+                }
+            };
+            window.requestAnimationFrame(step);
+        }
+
+        function breakPortal() {
+            animateValue('health-metric', 97, 31, 500, 'text-rose-600', 'DOM DRIFT FAILURE', 'bg-rose-100 text-rose-800');
+            document.getElementById('ai-insight-log').innerText = 'ALERT: Missing selectors. Bright Data Self-Healing ready.';
+
+            const stream = document.getElementById('event-stream');
+            stream.innerHTML += '<p class="text-rose-400 font-semibold">[00:05:04] ALERT: DOM Drift delta > 0.75 on DST NIDHI-PRAYAS. Selectors missing. Health: 97% ➔ 31%</p>';
+            stream.scrollTop = stream.scrollHeight;
+
+            oneuiChart.data.datasets[0].data[5] = 31;
+            oneuiChart.data.datasets[0].borderColor = '#E11D48';
+            oneuiChart.update();
+        }
+
+        function healPortal() {
+            const stream = document.getElementById('event-stream');
+            stream.innerHTML += '<p class="text-amber-400 font-semibold">[00:05:06] Bright Data Self-Healing Agent diagnosing DOM drift...</p>';
+            stream.innerHTML += '<p class="text-cyan-400 font-semibold">[00:05:10] Canary Validation: Passed 4/4 safety invariants.</p>';
+            stream.innerHTML += '<p class="text-emerald-400 font-semibold">[00:05:13] SUCCESS: Scraper v2.0 promoted. Health restored: 31% ➔ 97%</p>';
+            stream.scrollTop = stream.scrollHeight;
+
+            animateValue('health-metric', 31, 97, 600, 'text-emerald-600', 'OPTIMAL', 'bg-emerald-100 text-emerald-800');
+            document.getElementById('ai-insight-log').innerText = 'Scraper v2.0 active. Health restored successfully.';
+
+            oneuiChart.data.datasets[0].data[5] = 97;
+            oneuiChart.data.datasets[0].borderColor = '#4F46E5';
+            oneuiChart.update();
+
+            // 🎉 Launch Confetti Particle Burst on Healing!
+            confetti({
+                particleCount: 70,
+                spread: 60,
+                origin: { y: 0.6 }
+            });
+        }
+
+        function resetPortal() {
+            document.getElementById('health-metric').innerText = '97%';
+            document.getElementById('health-metric').className = 'text-4xl font-extrabold text-emerald-600 tracking-tight';
+            document.getElementById('health-badge').innerText = 'OPTIMAL';
+            document.getElementById('health-badge').className = 'inline-block mt-2 px-3 py-0.5 text-xs font-bold rounded-full bg-emerald-100 text-emerald-800';
+            oneuiChart.data.datasets[0].data[5] = 97;
+            oneuiChart.data.datasets[0].borderColor = '#4F46E5';
+            oneuiChart.update();
+        }
+
+        function generatePitch() {
+            document.getElementById('pitch-box').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
