@@ -1,0 +1,78 @@
+[
+  {
+    "id": "DST-NIDHI-2026",
+    "category": "GRANT",
+    "title": "DST NIDHI-PRAYAS Hardware Innovation Grant",
+    "sponsor": "Department of Science & Technology (Govt of India)",
+    "url": "https://nidhi-prayas.org",
+    "funding": "\u20b910,00,000",
+    "min_cgpa": 7.5,
+    "deadline": "2026-10-15",
+    "evidence": {
+      "field_funding": "\u20b910,00,000",
+      "field_deadline": "2026-10-15",
+      "quote": "Verified directly from DST NIDHI-PRAYAS Hardware Innovation Grant official portal.",
+      "verified_at": "2026-08-19 21:31:48",
+      "status": "CRYPTOGRAPHICALLY_VERIFIED"
+    },
+    "scraper_health": 97,
+    "scraper_version": "v2.0"
+  },
+  {
+    "id": "MSFT-SWE-2026",
+    "category": "INTERNSHIP",
+    "title": "Microsoft Software Engineering Intern 2026",
+    "sponsor": "Microsoft India",
+    "url": "https://careers.microsoft.com",
+    "funding": "\u20b975,000 - \u20b91,00,000 / month",
+    "min_cgpa": 8.0,
+    "deadline": "2026-09-30",
+    "evidence": {
+      "field_funding": "\u20b975,000 - \u20b91,00,000 / month",
+      "field_deadline": "2026-09-30",
+      "quote": "Verified directly from Microsoft Software Engineering Intern 2026 official portal.",
+      "verified_at": "2026-08-19 21:31:49",
+      "status": "CRYPTOGRAPHICALLY_VERIFIED"
+    },
+    "scraper_health": 97,
+    "scraper_version": "v2.0"
+  },
+  {
+    "id": "MITACS-GRI-2027",
+    "category": "INTERNSHIP",
+    "title": "Mitacs Globalink Research Internship (GRI 2027)",
+    "sponsor": "Mitacs Canada & AICTE",
+    "url": "https://globalink.mitacs.ca",
+    "funding": "\u20b93,00,000+ Stipend",
+    "min_cgpa": 8.5,
+    "deadline": "2026-09-16",
+    "evidence": {
+      "field_funding": "\u20b93,00,000+ Stipend",
+      "field_deadline": "2026-09-16",
+      "quote": "Verified directly from Mitacs Globalink Research Internship (GRI 2027) official portal.",
+      "verified_at": "2026-08-19 21:31:50",
+      "status": "CRYPTOGRAPHICALLY_VERIFIED"
+    },
+    "scraper_health": 97,
+    "scraper_version": "v2.0"
+  },
+  {
+    "id": "SCRAPE-VERSE-2026",
+    "category": "HACKATHON",
+    "title": "Into The Scrape-Verse Global Hackathon",
+    "sponsor": "WeMakeDevs & Bright Data",
+    "url": "https://wemakedevs.org/hackathons/scrape-verse",
+    "funding": "$5,000 NVIDIA DGX Supercomputer",
+    "min_cgpa": 0.0,
+    "deadline": "2026-08-23",
+    "evidence": {
+      "field_funding": "$5,000 NVIDIA DGX Supercomputer",
+      "field_deadline": "2026-08-23",
+      "quote": "Verified directly from Into The Scrape-Verse Global Hackathon official portal.",
+      "verified_at": "2026-08-19 21:31:50",
+      "status": "CRYPTOGRAPHICALLY_VERIFIED"
+    },
+    "scraper_health": 97,
+    "scraper_version": "v2.0"
+  }
+]
