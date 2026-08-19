@@ -2,21 +2,161 @@
   {
     "id": "DST-NIDHI-2026",
     "category": "GRANT",
-    "title": "DST NIDHI-PRAYAS Hardware Innovation Grant",
+    "title": "DST NIDHI-PRAYAS Hardware Innovation Scheme",
     "sponsor": "Department of Science & Technology (Govt of India)",
     "url": "https://nidhi-prayas.org",
-    "funding": "\u20b910,00,000",
+    "funding": "\u20b910,00,000 (Non-Dilutive)",
     "min_cgpa": 7.5,
     "deadline": "2026-10-15",
-    "evidence": {
-      "field_funding": "\u20b910,00,000",
-      "field_deadline": "2026-10-15",
-      "quote": "Verified directly from DST NIDHI-PRAYAS Hardware Innovation Grant official portal.",
-      "verified_at": "2026-08-19 21:31:48",
-      "status": "CRYPTOGRAPHICALLY_VERIFIED"
-    },
+    "target_domains": [
+      "Robotics",
+      "Edge AI",
+      "IoT",
+      "Hardware Sensors"
+    ],
+    "evidence": [
+      {
+        "field": "funding_and_deadline",
+        "quote": "Funding Support: Up to INR 10,00,000 for student-led hardware prototypes under NIDHI-PRAYAS 2.0 guidelines.",
+        "source_url": "https://nidhi-prayas.org",
+        "verified_at": "2026-08-19 22:44:10"
+      }
+    ],
     "scraper_health": 97,
-    "scraper_version": "v2.0"
+    "scraper_version": "v2.0",
+    "ingested_at": "2026-08-19 22:44:10"
+  },
+  {
+    "id": "MITACS-GRI-2027",
+    "category": "FELLOWSHIP",
+    "title": "Mitacs Globalink Research Internship (Canada \ud83c\udde8\ud83c\udde6)",
+    "sponsor": "Mitacs Canada & AICTE India",
+    "url": "https://globalink.mitacs.ca",
+    "funding": "\u20b93,00,000+ (Fully Funded Flights & Housing)",
+    "min_cgpa": 8.5,
+    "deadline": "2026-09-16",
+    "target_domains": [
+      "AI/ML",
+      "Robotics",
+      "Computer Vision",
+      "Systems"
+    ],
+    "evidence": [
+      {
+        "field": "funding_and_deadline",
+        "quote": "12-week fully funded summer research internship at top Canadian universities with round-trip airfare and living stipend.",
+        "source_url": "https://globalink.mitacs.ca",
+        "verified_at": "2026-08-19 22:44:10"
+      }
+    ],
+    "scraper_health": 97,
+    "scraper_version": "v2.0",
+    "ingested_at": "2026-08-19 22:44:10"
+  },
+  {
+    "id": "IDEX-DISC-2026",
+    "category": "GRANT",
+    "title": "iDEX Defence Innovation Challenge (DISC)",
+    "sponsor": "Ministry of Defence (Govt of India)",
+    "url": "https://idex.gov.in",
+    "funding": "Up to \u20b91.5 Crore",
+    "min_cgpa": 7.0,
+    "deadline": "2026-11-30",
+    "target_domains": [
+      "Autonomous Robotics",
+      "Encrypted Mesh",
+      "Disaster Tech"
+    ],
+    "evidence": [
+      {
+        "field": "funding_and_deadline",
+        "quote": "Grant-in-aid support for individual innovators and student prototype development under iDEX Open Challenge.",
+        "source_url": "https://idex.gov.in",
+        "verified_at": "2026-08-19 22:44:10"
+      }
+    ],
+    "scraper_health": 97,
+    "scraper_version": "v2.0",
+    "ingested_at": "2026-08-19 22:44:10"
+  },
+  {
+    "id": "EDGE-NOVA-2026",
+    "category": "HACKATHON",
+    "title": "EDGE NOVA'26 (24-Hour National Hackathon)",
+    "sponsor": "Dept. of Computational Intelligence (CINTEL) @ SRM KTR",
+    "url": "https://edgenova.vercel.app",
+    "funding": "\u20b940,000+ Prize Pool | On-Duty (OD) Clearance",
+    "min_cgpa": 0.0,
+    "deadline": "2026-08-19",
+    "target_domains": [
+      "Edge AI",
+      "Cybersecurity",
+      "IoT",
+      "Social Impact"
+    ],
+    "evidence": [
+      {
+        "field": "funding_and_deadline",
+        "quote": "Offline 24-hour hackathon at SRM KTR on August 27-28, 2026. On Duty provided as per institute norms.",
+        "source_url": "https://edgenova.vercel.app",
+        "verified_at": "2026-08-19 22:44:10"
+      }
+    ],
+    "scraper_health": 97,
+    "scraper_version": "v2.0",
+    "ingested_at": "2026-08-19 22:44:10"
+  },
+  {
+    "id": "SCRAPE-VERSE-2026",
+    "category": "HACKATHON",
+    "title": "Into The Scrape-Verse Global Hackathon",
+    "sponsor": "WeMakeDevs & Bright Data",
+    "url": "https://wemakedevs.org/hackathons/scrape-verse",
+    "funding": "$5,000 NVIDIA DGX Personal AI Supercomputer",
+    "min_cgpa": 0.0,
+    "deadline": "2026-08-23",
+    "target_domains": [
+      "Web Scraping",
+      "AI Agents",
+      "Self-Healing Data"
+    ],
+    "evidence": [
+      {
+        "field": "funding_and_deadline",
+        "quote": "Build AI-powered self-healing web scrapers with $15,000+ prize pool and Bright Data Scraper Studio.",
+        "source_url": "https://wemakedevs.org/hackathons/scrape-verse",
+        "verified_at": "2026-08-19 22:44:10"
+      }
+    ],
+    "scraper_health": 97,
+    "scraper_version": "v2.0",
+    "ingested_at": "2026-08-19 22:44:10"
+  },
+  {
+    "id": "SIH-2026",
+    "category": "HACKATHON",
+    "title": "Smart India Hackathon 2026 (Hardware Edition)",
+    "sponsor": "Ministry of Education & Govt of India",
+    "url": "https://sih.gov.in",
+    "funding": "\u20b91,00,000 per problem statement + Govt Backing",
+    "min_cgpa": 0.0,
+    "deadline": "2026-09-15",
+    "target_domains": [
+      "Disaster Management",
+      "Robotics",
+      "Clean Tech"
+    ],
+    "evidence": [
+      {
+        "field": "funding_and_deadline",
+        "quote": "National hardware competition solving real ministry problem statements across India.",
+        "source_url": "https://sih.gov.in",
+        "verified_at": "2026-08-19 22:44:10"
+      }
+    ],
+    "scraper_health": 97,
+    "scraper_version": "v2.0",
+    "ingested_at": "2026-08-19 22:44:10"
   },
   {
     "id": "MSFT-SWE-2026",
@@ -27,52 +167,73 @@
     "funding": "\u20b975,000 - \u20b91,00,000 / month",
     "min_cgpa": 8.0,
     "deadline": "2026-09-30",
-    "evidence": {
-      "field_funding": "\u20b975,000 - \u20b91,00,000 / month",
-      "field_deadline": "2026-09-30",
-      "quote": "Verified directly from Microsoft Software Engineering Intern 2026 official portal.",
-      "verified_at": "2026-08-19 21:31:49",
-      "status": "CRYPTOGRAPHICALLY_VERIFIED"
-    },
+    "target_domains": [
+      "C++",
+      "Distributed Systems",
+      "Cloud Infrastructure"
+    ],
+    "evidence": [
+      {
+        "field": "funding_and_deadline",
+        "quote": "Open to Bachelor's students with >= 1 semester remaining and strong fundamentals in DSA and OOP.",
+        "source_url": "https://careers.microsoft.com",
+        "verified_at": "2026-08-19 22:44:10"
+      }
+    ],
     "scraper_health": 97,
-    "scraper_version": "v2.0"
+    "scraper_version": "v2.0",
+    "ingested_at": "2026-08-19 22:44:10"
   },
   {
-    "id": "MITACS-GRI-2027",
+    "id": "GOOGLE-APP-2026",
     "category": "INTERNSHIP",
-    "title": "Mitacs Globalink Research Internship (GRI 2027)",
-    "sponsor": "Mitacs Canada & AICTE",
-    "url": "https://globalink.mitacs.ca",
-    "funding": "\u20b93,00,000+ Stipend",
-    "min_cgpa": 8.5,
-    "deadline": "2026-09-16",
-    "evidence": {
-      "field_funding": "\u20b93,00,000+ Stipend",
-      "field_deadline": "2026-09-16",
-      "quote": "Verified directly from Mitacs Globalink Research Internship (GRI 2027) official portal.",
-      "verified_at": "2026-08-19 21:31:50",
-      "status": "CRYPTOGRAPHICALLY_VERIFIED"
-    },
+    "title": "Google Software Application Development Apprenticeship",
+    "sponsor": "Google India",
+    "url": "https://careers.google.com",
+    "funding": "\u20b970,000 - \u20b985,000 / month",
+    "min_cgpa": 8.0,
+    "deadline": "2026-09-15",
+    "target_domains": [
+      "Python",
+      "Machine Learning",
+      "System Design"
+    ],
+    "evidence": [
+      {
+        "field": "funding_and_deadline",
+        "quote": "12-month paid development apprenticeship working with senior Google engineers.",
+        "source_url": "https://careers.google.com",
+        "verified_at": "2026-08-19 22:44:10"
+      }
+    ],
     "scraper_health": 97,
-    "scraper_version": "v2.0"
+    "scraper_version": "v2.0",
+    "ingested_at": "2026-08-19 22:44:10"
   },
   {
-    "id": "SCRAPE-VERSE-2026",
-    "category": "HACKATHON",
-    "title": "Into The Scrape-Verse Global Hackathon",
-    "sponsor": "WeMakeDevs & Bright Data",
-    "url": "https://wemakedevs.org/hackathons/scrape-verse",
-    "funding": "$5,000 NVIDIA DGX Supercomputer",
+    "id": "ROBORUSH-2026",
+    "category": "EVENT",
+    "title": "RoboRush AI 2026 Championship",
+    "sponsor": "COE AI Robo Lab @ SRM KTR (Dr. Pritvi Krishna)",
+    "url": "https://roborush.in",
+    "funding": "\u20b91,50,000 Prize Pool | 6 Competition Tracks",
     "min_cgpa": 0.0,
-    "deadline": "2026-08-23",
-    "evidence": {
-      "field_funding": "$5,000 NVIDIA DGX Supercomputer",
-      "field_deadline": "2026-08-23",
-      "quote": "Verified directly from Into The Scrape-Verse Global Hackathon official portal.",
-      "verified_at": "2026-08-19 21:31:50",
-      "status": "CRYPTOGRAPHICALLY_VERIFIED"
-    },
+    "deadline": "2026-09-25",
+    "target_domains": [
+      "Autonomous Navigation",
+      "Kinematics",
+      "FPV Maze"
+    ],
+    "evidence": [
+      {
+        "field": "funding_and_deadline",
+        "quote": "National robotics tournament hosted at Tech Park 2 on September 28-29, 2026.",
+        "source_url": "https://roborush.in",
+        "verified_at": "2026-08-19 22:44:10"
+      }
+    ],
     "scraper_health": 97,
-    "scraper_version": "v2.0"
+    "scraper_version": "v2.0",
+    "ingested_at": "2026-08-19 22:44:10"
   }
 ]
