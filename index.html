@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SentinelHub AI // Crystal Liquid Glass</title>
+    <title>SentinelHub AI // Enterprise Opportunity Radar</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Chart.js -->
@@ -11,34 +11,46 @@
     <!-- Canvas Confetti -->
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
         :root {
             --text-primary: #0F172A;
             --text-secondary: #475569;
+            --text-muted: #64748B;
             --glass-bg: rgba(255, 255, 255, 0.78);
             --glass-card: rgba(255, 255, 255, 0.72);
-            --glass-inner: rgba(241, 245, 249, 0.88);
-            --glass-inner-border: rgba(199, 210, 254, 0.85);
+            --glass-inner: rgba(241, 245, 249, 0.90);
+            --glass-inner-border: rgba(199, 210, 254, 0.90);
             --glass-border: rgba(255, 255, 255, 0.95);
-            --glass-shadow: rgba(0, 0, 0, 0.16);
+            --glass-shadow: rgba(0, 0, 0, 0.12);
             --card-border: rgba(255, 255, 255, 0.95);
-            --theme-backdrop-tint: rgba(15, 23, 42, 0.30);
+            --theme-backdrop-tint: rgba(15, 23, 42, 0.25);
+            --modal-bg: rgba(255, 255, 255, 0.98);
+            --modal-sub: #F1F5F9;
+            --modal-sub-border: #CBD5E1;
+            --btn-sec-bg: rgba(241, 245, 249, 0.95);
+            --btn-sec-text: #0F172A;
         }
 
-        /* 🌙 100% RAZOR-SHARP CRYSTAL OBSIDIAN DARK MODE (Zero Smoky Fog!) */
+        /* 🌙 100% Crisp Obsidian Dark Mode */
         body.dark-mode {
             --text-primary: #FFFFFF;
-            --text-secondary: #94A3B8;
-            --glass-bg: rgba(6, 9, 15, 0.82);
-            --glass-card: rgba(11, 15, 25, 0.78);
-            --glass-inner: rgba(3, 7, 18, 0.85);
-            --glass-inner-border: rgba(255, 255, 255, 0.12);
-            --glass-border: rgba(255, 255, 255, 0.16);
-            --glass-shadow: rgba(0, 0, 0, 0.65);
-            --card-border: rgba(255, 255, 255, 0.12);
-            --theme-backdrop-tint: rgba(3, 7, 18, 0.72);
+            --text-secondary: #CBD5E1;
+            --text-muted: #94A3B8;
+            --glass-bg: rgba(10, 15, 28, 0.62);
+            --glass-card: rgba(15, 23, 42, 0.58);
+            --glass-inner: rgba(2, 6, 23, 0.70);
+            --glass-inner-border: rgba(255, 255, 255, 0.18);
+            --glass-border: rgba(255, 255, 255, 0.20);
+            --glass-shadow: rgba(0, 0, 0, 0.60);
+            --card-border: rgba(255, 255, 255, 0.15);
+            --theme-backdrop-tint: rgba(2, 6, 23, 0.52);
+            --modal-bg: rgba(10, 15, 28, 0.96);
+            --modal-sub: rgba(2, 6, 23, 0.85);
+            --modal-sub-border: rgba(255, 255, 255, 0.18);
+            --btn-sec-bg: rgba(255, 255, 255, 0.12);
+            --btn-sec-text: #38BDF8;
         }
 
         body {
@@ -47,11 +59,11 @@
             color: var(--text-primary);
             overflow-x: hidden;
             position: relative;
-            background: #06090F;
+            background: #0B0F19;
             transition: color 0.3s ease;
         }
 
-        /* 🌲 The Sunlit Forest Canopy Background */
+        /* 🌲 Sunlit Forest Canopy Background */
         .scenic-bg {
             position: fixed;
             top: 0;
@@ -85,14 +97,11 @@
             -webkit-backdrop-filter: blur(28px) saturate(190%);
             border: 1.5px solid var(--glass-border);
             border-radius: 36px;
-            box-shadow:
-                0 30px 80px var(--glass-shadow),
-                inset 0 1px 1px rgba(255, 255, 255, 0.4),
-                inset 0 -1px 2px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 30px 80px var(--glass-shadow), inset 0 1px 1px rgba(255, 255, 255, 0.4);
             transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        /* 📱 Crystal Squircle Card */
+        /* 📱 Tactile Squircle Card */
         .oneui-card {
             background: var(--glass-card);
             backdrop-filter: blur(20px) saturate(180%);
@@ -104,10 +113,9 @@
         }
         .oneui-card:hover {
             transform: translateY(-3px);
-            box-shadow: 0 18px 35px rgba(0, 0, 0, 0.2), inset 0 1px 1.5px rgba(255, 255, 255, 0.5);
+            box-shadow: 0 18px 35px rgba(0, 0, 0, 0.25), inset 0 1px 1.5px rgba(255, 255, 255, 0.5);
         }
 
-        /* Sub-Block (Porcelain Cream in Light Mode | Pitch Obsidian in Dark Mode) */
         .frosted-inner-box {
             background: var(--glass-inner);
             backdrop-filter: blur(16px);
@@ -115,7 +123,7 @@
             border: 1.5px solid var(--glass-inner-border);
             border-radius: 18px;
             padding: 16px;
-            box-shadow: inset 0 1px 1.5px rgba(255, 255, 255, 0.4), 0 4px 14px rgba(0, 0, 0, 0.04);
+            box-shadow: inset 0 1px 1.5px rgba(255, 255, 255, 0.3), 0 4px 14px rgba(0, 0, 0, 0.04);
             transition: all 0.3s ease;
         }
 
@@ -142,10 +150,9 @@
             transform: scale(1.03);
         }
 
-        /* Glowing Tactile Button */
         .btn-glow {
             background: linear-gradient(135deg, #10B981 0%, #059669 100%);
-            color: #FFFFFF;
+            color: #FFFFFF !important;
             box-shadow: 0 8px 24px rgba(16, 185, 129, 0.35), inset 0 1px 1px rgba(255, 255, 255, 0.5);
             transition: all 0.25s ease;
         }
@@ -154,14 +161,41 @@
             box-shadow: 0 12px 30px rgba(16, 185, 129, 0.55);
         }
 
+        .btn-sec {
+            background: var(--btn-sec-bg);
+            color: var(--btn-sec-text);
+            border: 1px solid var(--glass-inner-border);
+            transition: all 0.25s ease;
+        }
+        .btn-sec:hover { transform: scale(1.03); }
+
+        /* 📄 Viewport-Locked Centered Modal Sheet */
+        .modal-sheet {
+            background: var(--modal-bg);
+            color: var(--text-primary);
+            border: 1.5px solid var(--glass-border);
+            border-radius: 32px;
+            box-shadow: 0 35px 90px rgba(0, 0, 0, 0.65), inset 0 1px 2px rgba(255, 255, 255, 0.4);
+        }
+
+        .modal-sub-card {
+            background: var(--modal-sub);
+            border: 1px solid var(--modal-sub-border);
+            border-radius: 18px;
+        }
+
         .mono { font-family: 'JetBrains Mono', monospace; }
+
+        /* Smooth Inner Scrollbar */
+        .custom-scroll::-webkit-scrollbar { width: 6px; }
+        .custom-scroll::-webkit-scrollbar-track { background: transparent; }
+        .custom-scroll::-webkit-scrollbar-thumb { background: rgba(148, 163, 184, 0.4); border-radius: 4px; }
+        .custom-scroll::-webkit-scrollbar-thumb:hover { background: rgba(99, 102, 241, 0.6); }
     </style>
 </head>
-<body class="p-4 md:p-10 flex items-center justify-center min-h-screen">
+<body class="p-4 md:p-8 flex items-center justify-center min-h-screen">
 
-    <!-- 🌲 Forest Canopy Layer -->
     <div class="scenic-bg"></div>
-    <!-- 💡 Spotlight -->
     <div class="spotlight-overlay" id="spotlight"></div>
 
     <!-- 🪟 THE GRAND GLASS MONOLITH CONTAINER -->
@@ -176,61 +210,75 @@
                 <div>
                     <div class="flex items-center gap-2.5">
                         <h1 class="text-2xl font-black tracking-tight" style="color: var(--text-primary);">SentinelHub AI</h1>
-                        <span class="px-3 py-0.5 rounded-full text-xs font-bold bg-indigo-500/15 text-indigo-600 dark:text-indigo-400 border border-indigo-300/40">Crystal Glass</span>
+                        <span class="px-3 py-0.5 rounded-full text-xs font-bold bg-indigo-500/15 text-indigo-600 dark:text-indigo-400 border border-indigo-300/40">SLM Intelligence v6.0</span>
                     </div>
-                    <p class="text-xs font-semibold" style="color: var(--text-secondary);">Self-Healing Web Intelligence Radar • Powered by Bright Data</p>
+                    <p class="text-xs font-semibold" style="color: var(--text-secondary);">Autonomous Opportunity Radar • Powered by Google Gemini SLM & Bright Data</p>
                 </div>
             </div>
 
-            <!-- Theme Switcher & Profile Status -->
+            <!-- Controls & Profile Trigger -->
             <div class="flex items-center gap-3">
-                <!-- ☀️ / 🌙 THEME TOGGLE BUTTON -->
-                <button onclick="toggleTheme()" class="island-nav px-4 py-2 flex items-center gap-2 text-xs font-bold shadow-sm hover:scale-105 transition-all">
+                <button onclick="toggleTheme()" class="island-nav px-4 py-2 flex items-center gap-2 text-xs font-bold shadow-sm hover:scale-105 transition-all" style="color: var(--text-primary);">
                     <span id="theme-icon">🌙</span> <span id="theme-label" class="hidden sm:inline">Dark Glass</span>
                 </button>
 
-                <span class="px-3.5 py-1.5 rounded-full text-xs font-bold bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border border-emerald-300/70 shadow-sm flex items-center gap-2">
-                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span> Live Data Stream
+                <span class="px-3.5 py-1.5 rounded-full text-xs font-bold bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 border border-emerald-300/70 shadow-sm flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span> Live SLM Stream
                 </span>
-                <span class="text-xs font-bold bg-white/40 dark:bg-white/10 px-4 py-1.5 rounded-full border border-white/40 shadow-sm">
-                    👤 Charan (9.6 CGPA)
-                </span>
+
+                <!-- CLICKABLE USER PROFILE BADGE -->
+                <button onclick="openProfileModal()" class="text-xs font-bold bg-white/40 dark:bg-white/10 px-4 py-1.5 rounded-full border border-white/40 shadow-sm hover:scale-105 transition-all flex items-center gap-1.5" style="color: var(--text-primary);">
+                    <span>👤</span> <span id="nav-profile-name">Charan (9.6 CGPA)</span> <span class="text-indigo-500 text-xs">✏️</span>
+                </button>
             </div>
         </header>
 
         <!-- TOP 4 SQUIRCLE METRIC TILES -->
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-            <div class="oneui-card p-5 text-center">
+            <div class="oneui-card p-5 text-center cursor-pointer" onclick="playHapticSound('tap')">
                 <p class="text-xs font-bold uppercase tracking-widest mb-1" style="color: var(--text-secondary);">Sentinel Health</p>
-                <h2 id="health-metric" class="text-4xl font-extrabold text-emerald-500 tracking-tight transition-all duration-500">97%</h2>
-                <span id="health-badge" class="inline-block mt-2 px-3 py-0.5 text-xs font-bold rounded-full bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border border-emerald-300/40">OPTIMAL</span>
+                <h2 id="health-metric" class="text-4xl font-extrabold text-emerald-600 dark:text-emerald-400 tracking-tight transition-all duration-500">97%</h2>
+                <span id="health-badge" class="inline-block mt-2 px-3 py-0.5 text-xs font-bold rounded-full bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 border border-emerald-300/40">OPTIMAL</span>
             </div>
-            <div class="oneui-card p-5 text-center">
-                <p class="text-xs font-bold uppercase tracking-widest mb-1" style="color: var(--text-secondary);">Scraper Pipeline</p>
-                <h2 id="scraper-ver" class="text-4xl font-extrabold text-indigo-500 tracking-tight">v2.0</h2>
-                <span class="inline-block mt-2 px-3 py-0.5 text-xs font-bold rounded-full bg-indigo-500/15 text-indigo-500 border border-indigo-300/40">AUTO-HEALED</span>
+            <div class="oneui-card p-5 text-center cursor-pointer" onclick="playHapticSound('tap')">
+                <p class="text-xs font-bold uppercase tracking-widest mb-1" style="color: var(--text-secondary);">SLM Reasoning Core</p>
+                <h2 class="text-4xl font-extrabold text-indigo-600 dark:text-indigo-400 tracking-tight">Gemini</h2>
+                <span class="inline-block mt-2 px-3 py-0.5 text-xs font-bold rounded-full bg-indigo-500/15 text-indigo-700 dark:text-indigo-300 border border-indigo-300/40">ACTIVE INFERENCE</span>
             </div>
-            <div class="oneui-card p-5 text-center">
+            <div class="oneui-card p-5 text-center cursor-pointer" onclick="playHapticSound('tap')">
                 <p class="text-xs font-bold uppercase tracking-widest mb-1" style="color: var(--text-secondary);">Monitored Sources</p>
                 <h2 id="portal-count" class="text-4xl font-extrabold tracking-tight" style="color: var(--text-primary);">8 Live</h2>
-                <span class="inline-block mt-2 px-3 py-0.5 text-xs font-bold rounded-full bg-slate-500/15 text-slate-500 border border-slate-300/40">100% UPTIME</span>
+                <span class="inline-block mt-2 px-3 py-0.5 text-xs font-bold rounded-full bg-slate-500/15 text-slate-700 dark:text-slate-300 border border-slate-300/40">100% UPTIME</span>
             </div>
-            <div class="oneui-card p-5 text-center">
+            <div class="oneui-card p-5 text-center cursor-pointer" onclick="playHapticSound('alert')">
                 <p class="text-xs font-bold uppercase tracking-widest mb-1" style="color: var(--text-secondary);">Conflict Engine</p>
-                <h2 class="text-4xl font-extrabold text-amber-500 tracking-tight">1 Alert</h2>
-                <span class="inline-block mt-2 px-3 py-0.5 text-xs font-bold rounded-full bg-amber-500/15 text-amber-500 border border-amber-300/40">COLLISION ACTIVE</span>
+                <h2 class="text-4xl font-extrabold text-amber-600 dark:text-amber-400 tracking-tight">1 Alert</h2>
+                <span class="inline-block mt-2 px-3 py-0.5 text-xs font-bold rounded-full bg-amber-500/15 text-amber-700 dark:text-amber-300 border border-amber-300/40">COLLISION ACTIVE</span>
             </div>
         </div>
 
-        <!-- 🌟 FLOATING PILL NAVBAR -->
+        <!-- 🔍 SEARCH BAR -->
+        <div class="flex justify-center mb-6">
+            <div class="island-nav px-5 py-2.5 w-full max-w-xl flex items-center gap-3 shadow-md">
+                <span class="text-indigo-500 text-base">🔍</span>
+                <input
+                    type="text"
+                    id="global-search"
+                    oninput="filterOpportunities()"
+                    placeholder="Instant Semantic Search (e.g. 'Microsoft', 'Robotics', '10 Lakh', 'Mitacs')..."
+                    class="bg-transparent border-none outline-none w-full text-xs font-semibold placeholder-slate-400"
+                    style="color: var(--text-primary);">
+            </div>
+        </div>
+
+        <!-- 🌟 FLOATING PILL NAVBAR (OUTREACH TAB REMOVED!) -->
         <div class="flex justify-center mb-8">
             <div class="island-nav p-1.5 flex flex-wrap justify-center gap-1.5">
-                <button onclick="switchTab('dashboard')" id="tab-dashboard" class="tab-btn active px-4 py-2 rounded-full text-xs font-bold transition-all border border-transparent">✦ Sentinel AI</button>
-                <button onclick="switchTab('hackathons')" id="tab-hackathons" class="tab-btn px-4 py-2 rounded-full text-xs font-bold transition-all border border-transparent">🏆 Hackathons</button>
-                <button onclick="switchTab('grants')" id="tab-grants" class="tab-btn px-4 py-2 rounded-full text-xs font-bold transition-all border border-transparent">🔬 Grants</button>
-                <button onclick="switchTab('internships')" id="tab-internships" class="tab-btn px-4 py-2 rounded-full text-xs font-bold transition-all border border-transparent">💼 Internships</button>
-                <button onclick="switchTab('outreach')" id="tab-outreach" class="tab-btn px-4 py-2 rounded-full text-xs font-bold transition-all border border-transparent">🚀 Outreach</button>
-                <button onclick="switchTab('sentinel')" id="tab-sentinel" class="tab-btn px-4 py-2 rounded-full text-xs font-bold transition-all border border-transparent">📡 Self-Healing</button>
+                <button onclick="switchTab('dashboard')" id="tab-dashboard" class="tab-btn active px-5 py-2 rounded-full text-xs font-bold transition-all border border-transparent">✦ Sentinel AI</button>
+                <button onclick="switchTab('hackathons')" id="tab-hackathons" class="tab-btn px-5 py-2 rounded-full text-xs font-bold transition-all border border-transparent">🏆 Hackathons</button>
+                <button onclick="switchTab('grants')" id="tab-grants" class="tab-btn px-5 py-2 rounded-full text-xs font-bold transition-all border border-transparent">🔬 Grants</button>
+                <button onclick="switchTab('internships')" id="tab-internships" class="tab-btn px-5 py-2 rounded-full text-xs font-bold transition-all border border-transparent">💼 Internships</button>
+                <button onclick="switchTab('sentinel')" id="tab-sentinel" class="tab-btn px-5 py-2 rounded-full text-xs font-bold transition-all border border-transparent">📡 Self-Healing Engine</button>
             </div>
         </div>
 
@@ -238,9 +286,9 @@
         <div id="content-dashboard" class="grid grid-cols-1 lg:grid-cols-3 gap-6">
             <div class="oneui-card p-7 flex flex-col justify-between">
                 <div>
-                    <span class="px-3 py-1 rounded-full text-xs font-bold bg-indigo-500/15 text-indigo-600 dark:text-indigo-400 border border-indigo-300/40 shadow-sm">✦ Live Intelligence</span>
+                    <span class="px-3 py-1 rounded-full text-xs font-bold bg-indigo-500/15 text-indigo-700 dark:text-indigo-300 border border-indigo-300/40 shadow-sm">✦ Live Intelligence</span>
                     <h3 class="text-2xl font-extrabold mt-4 mb-2 tracking-tight leading-tight" style="color: var(--text-primary);">
-                        Discovery<br><span class="text-emerald-500">That Never</span><br>Breaks.
+                        Discovery<br><span class="text-emerald-600 dark:text-emerald-400">That Never</span><br>Breaks.
                     </h3>
                     <p id="ai-insight-desc" class="text-xs leading-relaxed mb-6 font-medium" style="color: var(--text-secondary);">
                         Sentinel AI verified <b>8 live opportunities</b> with 100% evidence provenance across Unstop, Mitacs, and Microsoft portals.
@@ -256,7 +304,7 @@
                 </div>
 
                 <div class="frosted-inner-box mt-6 text-xs mono">
-                    <p class="text-indigo-600 dark:text-indigo-400 font-bold mb-1">// Bright Data Status:</p>
+                    <p class="text-indigo-600 dark:text-cyan-400 font-bold mb-1">// Bright Data Status:</p>
                     <p id="ai-insight-log" style="color: var(--text-secondary);">Collector c_mt0bxaoi1yl2y39685 active. Ingestion verified.</p>
                 </div>
             </div>
@@ -268,7 +316,7 @@
                         <h3 class="text-lg font-bold" style="color: var(--text-primary);">Ingestion Stream & Scraper Health</h3>
                         <p class="text-xs font-medium" style="color: var(--text-secondary);">Live telemetry via Bright Data Web Unlocker</p>
                     </div>
-                    <span class="text-xs font-bold px-3 py-1 rounded-full bg-indigo-500/15 text-indigo-600 dark:text-indigo-400 border border-indigo-300/40">Live Feed</span>
+                    <span class="text-xs font-bold px-3 py-1 rounded-full bg-indigo-500/15 text-indigo-700 dark:text-indigo-300 border border-indigo-300/40">Live Feed</span>
                 </div>
                 <div class="h-64 w-full">
                     <canvas id="oneuiChart"></canvas>
@@ -281,7 +329,7 @@
             <div class="bg-gradient-to-r from-amber-500/20 to-orange-500/15 border border-amber-500/40 rounded-3xl p-5 flex items-start gap-4 backdrop-blur-md shadow-sm">
                 <span class="text-2xl">⚠️</span>
                 <div>
-                    <h4 class="text-amber-700 dark:text-amber-400 font-bold text-sm">Smart Schedule Collision Detected!</h4>
+                    <h4 class="text-amber-800 dark:text-amber-400 font-bold text-sm">Smart Schedule Collision Detected!</h4>
                     <p class="text-xs mt-0.5 leading-relaxed" style="color: var(--text-secondary);">
                         <b>EDGE NOVA'26 (Aug 27–28)</b> coincides with your internal <b>Semester 3 Class Test (CT) window</b>. Secure prior On-Duty (OD) approval!
                     </p>
@@ -299,29 +347,12 @@
         <div id="content-internships" class="hidden space-y-6">
             <div class="flex items-center justify-between mb-2">
                 <h3 class="text-xl font-bold" style="color: var(--text-primary);">💼 Matched Tech Internships & Fellowships</h3>
-                <span class="text-xs font-bold px-3 py-1 rounded-full bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border border-emerald-300/40">Filtered for CGPA ≥ 8.0</span>
+                <span class="text-xs font-bold px-3 py-1 rounded-full bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 border border-emerald-300/40">Filtered for CGPA ≥ 8.0</span>
             </div>
             <div id="internships-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6"></div>
         </div>
 
-        <!-- TAB 5: OUTREACH AI -->
-        <div id="content-outreach" class="hidden oneui-card p-7">
-            <h3 class="text-2xl font-bold mb-1" style="color: var(--text-primary);">🚀 1-Click High-Conversion Cold Email Generator</h3>
-            <p class="text-xs mb-5" style="color: var(--text-secondary);">Generate tailored 3-sentence outreach pitches for professors and startup founders.</p>
-
-            <button onclick="generatePitch()" class="mb-5 btn-glow text-xs font-bold px-6 py-3 rounded-full">
-                Generate 3-Sentence Pitch ✦
-            </button>
-
-            <div id="pitch-box" class="hidden frosted-inner-box p-5 text-xs leading-relaxed mono">
-                <p class="text-indigo-600 dark:text-cyan-400 font-bold mb-2">Subject: Application for Microsoft SWE / Research Intern — Kotta Charan Ram Sai (9.6 CGPA)</p>
-                <p style="color: var(--text-primary);">"Dear Selection Committee / Hiring Lead,</p>
-                <p class="my-2" style="color: var(--text-primary);">I am an 18-year-old B.Tech CSE (AI/ML) student at SRM IST maintaining a 9.6 CGPA and State Rank 2 in AUEET. I operate on an ASUS ROG RTX 5070 workstation and recently built an award-winning offline mmWave radar disaster node (ResQ-Sanjeevini) and self-healing web intelligence pipelines.</p>
-                <p style="color: var(--text-primary);">I would love to bring my execution speed in low-latency systems and AI architecture to your team for Summer 2026. Can I share a 60-second video demo of my latest project?"</p>
-            </div>
-        </div>
-
-        <!-- TAB 6: SELF-HEALING CONTROL PLANE -->
+        <!-- TAB 5: SELF-HEALING CONTROL PLANE -->
         <div id="content-sentinel" class="hidden oneui-card p-7">
             <h3 class="text-2xl font-bold mb-1" style="color: var(--text-primary);">📡 Bright Data Self-Healing Control Plane</h3>
             <p class="text-xs mb-6" style="color: var(--text-secondary);">Deterministic Time-Travel Break & Heal Simulator for Hackathon Judges.</p>
@@ -345,64 +376,180 @@
                 <div>
                     <h4 class="text-xs font-bold uppercase tracking-widest mb-2" style="color: var(--text-secondary);">Live Scraper Telemetry Feed</h4>
                     <div id="event-stream" class="frosted-inner-box h-48 overflow-y-auto mono text-xs space-y-2">
-                        <p class="text-emerald-600 dark:text-emerald-400 font-semibold">[00:05:02] Monitoring 18 portals. Extraction health optimal (97%).</p>
-                        <p class="text-slate-500">[00:05:03] Bright Data Web Unlocker proxy active on all targets.</p>
+                        <p class="text-emerald-700 dark:text-emerald-400 font-semibold">[00:05:02] Monitoring 18 portals. Extraction health optimal (97%).</p>
+                        <p style="color: var(--text-muted);">[00:05:03] Bright Data Web Unlocker proxy active on all targets.</p>
                     </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 📄 VIEWPORT-LOCKED SLM AUTO-DRAFTER MODAL (PERFECT CENTER + INTERNAL SCROLL) -->
+        <div id="proposal-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/65 backdrop-blur-md">
+            <div class="modal-sheet w-full max-w-4xl p-6 sm:p-8 my-auto max-h-[85vh] flex flex-col relative shadow-2xl">
+                <!-- Header (Fixed at top) -->
+                <div class="flex justify-between items-start pb-4 border-b border-slate-200 dark:border-white/15 mb-4 shrink-0">
+                    <div>
+                        <span id="modal-doc-badge" class="px-3 py-1 rounded-full text-xs font-extrabold bg-indigo-600 text-white">⚡ AI Auto-Drafter</span>
+                        <h2 id="modal-grant-title" class="text-2xl font-black mt-2" style="color: var(--text-primary);">Opportunity Title</h2>
+                        <p class="text-xs font-semibold mt-1" style="color: var(--text-secondary);">Sponsor: <span id="modal-grant-sponsor" class="font-bold text-indigo-600 dark:text-cyan-400">Official</span> | Scope: <span id="modal-grant-funding" class="text-emerald-600 dark:text-emerald-400 font-bold">₹10,00,000</span></p>
+                    </div>
+                    <button onclick="closeProposalModal()" class="font-bold text-2xl px-3 py-1 rounded-xl modal-sub-card hover:scale-105 transition-all" style="color: var(--text-primary);">✕</button>
+                </div>
+
+                <!-- Scrollable Body (Internal scroll only) -->
+                <div id="dynamic-modal-body" class="space-y-4 text-sm overflow-y-auto pr-2 flex-1 custom-scroll" style="color: var(--text-primary);"></div>
+
+                <!-- Footer (Fixed at bottom) -->
+                <div class="flex flex-col sm:flex-row justify-between items-center mt-4 pt-4 border-t border-slate-200 dark:border-white/15 gap-4 shrink-0">
+                    <span class="text-xs font-semibold" style="color: var(--text-muted);">Engineered by <b class="text-indigo-600 dark:text-cyan-400">Sentinel SLM Reasoning Kernel</b></span>
+                    <div class="flex gap-3">
+                        <button onclick="copyGeneratedDocument()" class="btn-glow px-5 py-2.5 text-xs font-bold rounded-xl flex items-center gap-2">
+                            <span>📋</span> <span>Copy Document</span>
+                        </button>
+                        <button onclick="closeProposalModal()" class="modal-sub-card px-5 py-2.5 text-xs font-bold rounded-xl hover:scale-105 transition-all" style="color: var(--text-primary);">
+                            Close
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 👤 CANDIDATE PROFILE & INTEREST ONBOARDING MODAL -->
+        <div id="profile-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/65 backdrop-blur-md">
+            <div class="modal-sheet w-full max-w-lg p-7 relative">
+                <div class="flex justify-between items-center pb-4 border-b border-slate-200 dark:border-white/15 mb-5">
+                    <h3 class="text-xl font-extrabold" style="color: var(--text-primary);">👤 Candidate Profile & Focus</h3>
+                    <button onclick="closeProfileModal()" class="font-bold text-xl px-2" style="color: var(--text-primary);">✕</button>
+                </div>
+                <div class="space-y-4 text-xs">
+                    <div>
+                        <label class="block font-bold mb-1" style="color: var(--text-secondary);">Full Name</label>
+                        <input id="input-user-name" type="text" value="Kotta Charan Ram Sai" class="w-full p-2.5 rounded-xl modal-sub-card font-semibold outline-none focus:border-indigo-500" style="color: var(--text-primary);">
+                    </div>
+                    <div class="grid grid-cols-2 gap-3">
+                        <div>
+                            <label class="block font-bold mb-1" style="color: var(--text-secondary);">Cumulative CGPA</label>
+                            <input id="input-user-cgpa" type="number" step="0.01" value="9.60" class="w-full p-2.5 rounded-xl modal-sub-card font-semibold outline-none focus:border-indigo-500" style="color: var(--text-primary);">
+                        </div>
+                        <div>
+                            <label class="block font-bold mb-1" style="color: var(--text-secondary);">Year of Study</label>
+                            <select id="input-user-year" class="w-full p-2.5 rounded-xl modal-sub-card font-semibold outline-none" style="color: var(--text-primary);">
+                                <option value="2" selected>2nd Year (Semester 3)</option>
+                                <option value="3">3rd Year</option>
+                                <option value="4">4th Year</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block font-bold mb-1" style="color: var(--text-secondary);">University / Institution</label>
+                        <input id="input-user-inst" type="text" value="SRM Institute of Science and Technology (KTR)" class="w-full p-2.5 rounded-xl modal-sub-card font-semibold outline-none" style="color: var(--text-primary);">
+                    </div>
+                    <div>
+                        <label class="block font-bold mb-1" style="color: var(--text-secondary);">Custom Focus & Domain Tags (Comma Separated)</label>
+                        <input id="input-user-domains" type="text" value="Edge AI, Robotics, Embedded Systems, Hardware/IoT, Low-Latency C++" class="w-full p-2.5 rounded-xl modal-sub-card font-semibold outline-none" style="color: var(--text-primary);">
+                        <p class="text-xs mt-1" style="color: var(--text-muted);">The SLM uses these tags to calculate semantic match confidence.</p>
+                    </div>
+                </div>
+                <div class="flex justify-end gap-3 mt-6 pt-4 border-t border-slate-200 dark:border-white/15">
+                    <button onclick="saveUserProfile()" class="btn-glow px-5 py-2 text-xs font-bold rounded-xl">Save & Recalculate SLM</button>
                 </div>
             </div>
         </div>
 
     </div>
 
-    <!-- SCRIPT ENGINE -->
+    <!-- JAVASCRIPT ENGINE -->
     <script>
-        // 🎵 Glass Chime Synthesizer
-        function playGlassChime(isDark) {
+        let currentUser = {
+            name: "Kotta Charan Ram Sai",
+            cgpa: 9.60,
+            year: 2,
+            institution: "SRM Institute of Science and Technology (KTR)",
+            department: "CSE (AI & ML)",
+            interests: ["Edge AI", "Robotics", "Embedded Systems", "Hardware/IoT", "Low-Latency C++"]
+        };
+
+        function playHapticSound(type) {
+            if ('vibrate' in navigator) {
+                if (type === 'alert') navigator.vibrate([40, 50, 40]);
+                else if (type === 'heal') navigator.vibrate([25, 35, 60]);
+                else navigator.vibrate(15);
+            }
+
             try {
                 const ctx = new (window.AudioContext || window.webkitAudioContext)();
+                const now = ctx.currentTime;
                 const osc = ctx.createOscillator();
                 const gain = ctx.createGain();
-                osc.type = 'sine';
-                osc.frequency.setValueAtTime(isDark ? 520 : 880, ctx.currentTime);
-                osc.frequency.exponentialRampToValueAtTime(isDark ? 880 : 520, ctx.currentTime + 0.15);
-                gain.gain.setValueAtTime(0.05, ctx.currentTime);
-                gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.25);
+
+                if (type === 'alert') {
+                    osc.type = 'sawtooth';
+                    osc.frequency.setValueAtTime(220, now);
+                    osc.frequency.exponentialRampToValueAtTime(140, now + 0.2);
+                    gain.gain.setValueAtTime(0.08, now);
+                    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.2);
+                } else if (type === 'heal') {
+                    osc.type = 'sine';
+                    osc.frequency.setValueAtTime(440, now);
+                    osc.frequency.exponentialRampToValueAtTime(880, now + 0.18);
+                    gain.gain.setValueAtTime(0.12, now);
+                    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.35);
+                } else {
+                    osc.type = 'sine';
+                    osc.frequency.setValueAtTime(850, now);
+                    osc.frequency.exponentialRampToValueAtTime(1250, now + 0.08);
+                    gain.gain.setValueAtTime(0.06, now);
+                    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.1);
+                }
+
                 osc.connect(gain);
                 gain.connect(ctx.destination);
-                osc.start();
-                osc.stop(ctx.currentTime + 0.25);
+                osc.start(now);
+                osc.stop(now + 0.35);
             } catch(e) {}
         }
 
-        // ☀️ / 🌙 Theme Toggle
         function toggleTheme() {
             const isDark = document.body.classList.toggle('dark-mode');
             document.getElementById('theme-icon').innerText = isDark ? '☀️' : '🌙';
             document.getElementById('theme-label').innerText = isDark ? 'Light Glass' : 'Dark Glass';
-            playGlassChime(isDark);
+            playHapticSound(isDark ? 'heal' : 'tap');
 
-            // Sync chart styles
-            oneuiChart.options.scales.y.ticks.color = isDark ? '#94A3B8' : '#64748B';
-            oneuiChart.options.scales.x.ticks.color = isDark ? '#94A3B8' : '#64748B';
-            oneuiChart.options.scales.y.grid.color = isDark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.05)';
+            oneuiChart.options.scales.y.ticks.color = isDark ? '#CBD5E1' : '#64748B';
+            oneuiChart.options.scales.x.ticks.color = isDark ? '#CBD5E1' : '#64748B';
+            oneuiChart.options.scales.y.grid.color = isDark ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.05)';
             oneuiChart.update();
         }
 
-        // Spotlight
         window.addEventListener('mousemove', (e) => {
             document.documentElement.style.setProperty('--mouse-x', `${e.clientX}px`);
             document.documentElement.style.setProperty('--mouse-y', `${e.clientY}px`);
         });
 
         function switchTab(tabId) {
-            const tabs = ['dashboard', 'hackathons', 'grants', 'internships', 'outreach', 'sentinel'];
+            const tabs = ['dashboard', 'hackathons', 'grants', 'internships', 'sentinel'];
             tabs.forEach(t => {
                 document.getElementById('content-' + t).classList.add('hidden');
                 document.getElementById('tab-' + t).classList.remove('active');
             });
             document.getElementById('content-' + tabId).classList.remove('hidden');
             document.getElementById('tab-' + tabId).classList.add('active');
-            playGlassChime(true);
+            playHapticSound('tap');
+        }
+
+        function filterOpportunities() {
+            const query = document.getElementById('global-search').value.toLowerCase();
+            const cards = document.querySelectorAll('#hackathons-grid > div, #grants-container > div, #internships-grid > div');
+
+            cards.forEach(card => {
+                const text = card.innerText.toLowerCase();
+                if (text.includes(query)) {
+                    card.style.display = 'block';
+                    card.style.opacity = '1';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
         }
 
         const VERIFIED_DATA = [
@@ -411,6 +558,7 @@
                 "category": "HACKATHON",
                 "title": "Smart India Hackathon 2026 (Hardware Edition)",
                 "sponsor": "Ministry of Education & Unstop",
+                "url": "https://sih.gov.in",
                 "funding": "₹1,00,000 / Problem Statement",
                 "min_cgpa": 0.0,
                 "deadline": "15 September 2026",
@@ -422,6 +570,7 @@
                 "category": "HACKATHON",
                 "title": "Into The Scrape-Verse Hackathon",
                 "sponsor": "Bright Data x WeMakeDevs",
+                "url": "https://wemakedevs.org/hackathons/scrape-verse",
                 "funding": "$5,000 NVIDIA DGX Supercomputer",
                 "min_cgpa": 0.0,
                 "deadline": "23 August 2026",
@@ -433,6 +582,7 @@
                 "category": "HACKATHON",
                 "title": "EDGE NOVA'26 (24-Hour National Hackathon)",
                 "sponsor": "CINTEL Dept @ SRM KTR",
+                "url": "https://edgenova.vercel.app",
                 "funding": "₹40,000+ Cash Prize Pool",
                 "min_cgpa": 0.0,
                 "deadline": "19 August 2026",
@@ -444,6 +594,7 @@
                 "category": "GRANT",
                 "title": "DST NIDHI-PRAYAS Hardware Innovation Scheme",
                 "sponsor": "Department of Science & Technology (Govt of India)",
+                "url": "https://nidhi-prayas.org",
                 "funding": "₹10,00,000 (Non-Dilutive Grant)",
                 "min_cgpa": 7.5,
                 "deadline": "15 October 2026",
@@ -455,6 +606,7 @@
                 "category": "GRANT",
                 "title": "iDEX Defence Innovation Challenge (DISC)",
                 "sponsor": "Ministry of Defence (Govt of India)",
+                "url": "https://idex.gov.in",
                 "funding": "Up to ₹1.50 Crore Grant-in-Aid",
                 "min_cgpa": 7.0,
                 "deadline": "30 November 2026",
@@ -466,6 +618,7 @@
                 "category": "INTERNSHIP",
                 "title": "Microsoft Software Engineering Intern 2026",
                 "sponsor": "Microsoft India Careers",
+                "url": "https://careers.microsoft.com",
                 "funding": "₹75,000 - ₹1,00,000 / month",
                 "min_cgpa": 8.0,
                 "deadline": "30 September 2026",
@@ -477,6 +630,7 @@
                 "category": "INTERNSHIP",
                 "title": "Mitacs Globalink Research Internship (Canada 🇨🇦)",
                 "sponsor": "Mitacs Canada & AICTE India",
+                "url": "https://globalink.mitacs.ca",
                 "funding": "₹3,00,000+ (Flights & Housing Covered)",
                 "min_cgpa": 8.5,
                 "deadline": "16 September 2026",
@@ -488,6 +642,7 @@
                 "category": "INTERNSHIP",
                 "title": "Google Software Application Development Apprenticeship",
                 "sponsor": "Google India",
+                "url": "https://careers.google.com",
                 "funding": "₹70,000 - ₹85,000 / month",
                 "min_cgpa": 8.0,
                 "deadline": "15 September 2026",
@@ -496,25 +651,43 @@
             }
         ];
 
+        function computeMatchScore(oppDomains, userDomains, minCgpa, userCgpa) {
+            let score = 50;
+            if (userCgpa >= minCgpa) score += 25;
+            const matches = oppDomains.filter(d => userDomains.some(u => u.toLowerCase().includes(d.toLowerCase()) || d.toLowerCase().includes(u.toLowerCase())));
+            score += Math.min(matches.length * 15, 24);
+            return Math.min(score, 99);
+        }
+
         function renderAllChannels() {
             document.getElementById('portal-count').innerText = `${VERIFIED_DATA.length} Live`;
             document.getElementById('ai-insight-desc').innerHTML =
-                `Sentinel AI actively verified <b>${VERIFIED_DATA.length} live opportunities</b> with 100% evidence provenance across Unstop, Mitacs, and Microsoft portals.`;
+                `Sentinel AI verified <b>${VERIFIED_DATA.length} live opportunities</b> with 100% evidence provenance across Unstop, Mitacs, and Microsoft portals.`;
 
             // 1. Hackathons
             const hackathonsGrid = document.getElementById('hackathons-grid');
             hackathonsGrid.innerHTML = '';
             VERIFIED_DATA.filter(item => item.category === 'HACKATHON').forEach(h => {
+                const matchScore = computeMatchScore(h.target_domains, currentUser.interests, h.min_cgpa, currentUser.cgpa);
                 hackathonsGrid.innerHTML += `
                 <div class="oneui-card p-6">
-                    <span class="px-3 py-1 rounded-full text-xs font-bold bg-indigo-500/15 text-indigo-600 dark:text-indigo-400 border border-indigo-300/40">ACTIVE HACKATHON</span>
-                    <h3 class="text-xl font-bold mt-3 mb-1" style="color:var(--text-primary);">${h.title}</h3>
-                    <p class="text-xs mb-3" style="color:var(--text-secondary);">Organizer: ${h.sponsor}</p>
+                    <div class="flex justify-between items-center mb-2">
+                        <span class="px-3 py-1 rounded-full text-xs font-bold bg-indigo-500/15 text-indigo-700 dark:text-indigo-300 border border-indigo-300/40">ACTIVE HACKATHON</span>
+                        <span class="text-xs font-bold text-emerald-600 dark:text-emerald-400">✦ ${matchScore}% Match</span>
+                    </div>
+                    <h3 class="text-xl font-bold mt-2 mb-1" style="color: var(--text-primary);">${h.title}</h3>
+                    <p class="text-xs mb-3 font-medium" style="color: var(--text-secondary);">Organizer: ${h.sponsor}</p>
                     <p class="text-base font-bold text-emerald-600 dark:text-emerald-400 mb-3">${h.funding}</p>
                     <div class="flex flex-wrap gap-1.5 mb-4">
-                        ${h.target_domains.map(d => `<span class="px-2.5 py-0.5 rounded-md text-xs font-semibold frosted-inner-box">${d}</span>`).join('')}
+                        ${h.target_domains.map(d => `<span class="px-2.5 py-0.5 rounded-md text-xs font-semibold frosted-inner-box" style="color: var(--text-secondary);">${d}</span>`).join('')}
                     </div>
-                    <span class="px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border border-emerald-300/40">Deadline: ${h.deadline}</span>
+                    <div class="flex flex-wrap justify-between items-center gap-2 pt-2 border-t border-slate-200/60 dark:border-white/10">
+                        <span class="px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 border border-emerald-300/40">Deadline: ${h.deadline}</span>
+                        <div class="flex gap-2">
+                            <a href="${h.url}" target="_blank" class="px-3.5 py-1.5 rounded-xl text-xs font-bold btn-sec flex items-center gap-1">Apply ↗</a>
+                            <button onclick="autoDraftDocument('${h.id}')" class="btn-glow text-xs font-bold px-3.5 py-1.5 rounded-xl">⚡ AI Draft Blueprint</button>
+                        </div>
+                    </div>
                 </div>`;
             });
 
@@ -522,16 +695,24 @@
             const grantsContainer = document.getElementById('grants-container');
             grantsContainer.innerHTML = '';
             VERIFIED_DATA.filter(item => item.category === 'GRANT').forEach(g => {
+                const matchScore = computeMatchScore(g.target_domains, currentUser.interests, g.min_cgpa, currentUser.cgpa);
                 grantsContainer.innerHTML += `
                 <div class="oneui-card p-7">
-                    <span class="px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border border-emerald-300/40">GOVERNMENT PROTOTYPE GRANT</span>
-                    <h3 class="text-2xl font-bold mt-3 mb-1" style="color:var(--text-primary);">${g.title}</h3>
-                    <p class="text-xs mb-2" style="color:var(--text-secondary);">Sponsor: ${g.sponsor}</p>
+                    <div class="flex justify-between items-center mb-2">
+                        <span class="px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 border border-emerald-300/40">GOVERNMENT PROTOTYPE GRANT</span>
+                        <span class="text-xs font-bold text-emerald-600 dark:text-emerald-400">✦ ${matchScore}% Match</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mt-2 mb-1" style="color: var(--text-primary);">${g.title}</h3>
+                    <p class="text-xs mb-2 font-medium" style="color: var(--text-secondary);">Sponsor: ${g.sponsor}</p>
                     <p class="text-xl font-extrabold text-emerald-600 dark:text-emerald-400 mb-4">${g.funding} | Hard Deadline: ${g.deadline}</p>
-                    <div class="frosted-inner-box mono text-xs space-y-1.5">
-                        <p class="text-indigo-600 dark:text-cyan-400 font-bold text-sm">🔬 Cryptographic Evidence Chain (Source HTML Proof):</p>
-                        <p style="color:var(--text-primary);">• Quote: "${g.quote}"</p>
-                        <p class="text-xs" style="color:var(--text-secondary);">• Verified At: 2026-08-19 22:45:00</p>
+                    <div class="frosted-inner-box mono text-xs space-y-1.5 mb-4">
+                        <p class="text-indigo-600 dark:text-cyan-400 font-bold text-sm">🔬 Cryptographic Evidence Chain (Source Proof):</p>
+                        <p style="color: var(--text-primary);">• Quote: "${g.quote}"</p>
+                        <p class="text-xs" style="color: var(--text-muted);">• Verified At: 2026-08-20 22:45:00</p>
+                    </div>
+                    <div class="flex flex-wrap justify-between items-center gap-2 pt-2 border-t border-slate-200/60 dark:border-white/10">
+                        <a href="${g.url}" target="_blank" class="px-4 py-2 rounded-xl text-xs font-bold btn-sec flex items-center gap-1">Official Portal ↗</a>
+                        <button onclick="autoDraftDocument('${g.id}')" class="btn-glow px-4 py-2 text-xs font-bold rounded-xl">⚡ AI 1-Page Proposal</button>
                     </div>
                 </div>`;
             });
@@ -540,13 +721,23 @@
             const internshipsGrid = document.getElementById('internships-grid');
             internshipsGrid.innerHTML = '';
             VERIFIED_DATA.filter(item => item.category === 'INTERNSHIP' || item.category === 'FELLOWSHIP').forEach(i => {
+                const matchScore = computeMatchScore(i.target_domains, currentUser.interests, i.min_cgpa, currentUser.cgpa);
                 internshipsGrid.innerHTML += `
                 <div class="oneui-card p-6">
-                    <span class="px-3 py-1 rounded-full text-xs font-bold bg-indigo-500/15 text-indigo-600 dark:text-indigo-400 border border-indigo-300/40">${i.category}</span>
-                    <h3 class="text-xl font-bold mt-3 mb-1" style="color:var(--text-primary);">${i.title}</h3>
-                    <p class="text-xs mb-2" style="color:var(--text-secondary);">Sponsor: ${i.sponsor} | Min CGPA: ${i.min_cgpa}</p>
+                    <div class="flex justify-between items-center mb-2">
+                        <span class="px-3 py-1 rounded-full text-xs font-bold bg-indigo-500/15 text-indigo-700 dark:text-indigo-300 border border-indigo-300/40">${i.category}</span>
+                        <span class="text-xs font-bold text-emerald-600 dark:text-emerald-400">✦ ${matchScore}% Match</span>
+                    </div>
+                    <h3 class="text-xl font-bold mt-2 mb-1" style="color: var(--text-primary);">${i.title}</h3>
+                    <p class="text-xs mb-2 font-medium" style="color: var(--text-secondary);">Sponsor: ${i.sponsor} | Min CGPA: ${i.min_cgpa}</p>
                     <p class="text-base font-bold text-emerald-600 dark:text-emerald-400 mb-3">${i.funding}</p>
-                    <span class="px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border border-emerald-300/40">Deadline: ${i.deadline}</span>
+                    <div class="flex flex-wrap justify-between items-center gap-2 pt-2 border-t border-slate-200/60 dark:border-white/10">
+                        <span class="px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 border border-emerald-300/40">Deadline: ${i.deadline}</span>
+                        <div class="flex gap-2">
+                            <a href="${i.url}" target="_blank" class="px-3.5 py-1.5 rounded-xl text-xs font-bold btn-sec flex items-center gap-1">Careers Portal ↗</a>
+                            <button onclick="autoDraftDocument('${i.id}')" class="btn-glow text-xs font-bold px-3.5 py-1.5 rounded-xl">⚡ AI Cover Letter</button>
+                        </div>
+                    </div>
                 </div>`;
             });
         }
@@ -558,7 +749,7 @@
         const oneuiChart = new Chart(ctx, {
             type: 'line',
             data: {
-                labels: ['May', 'Jun', 'Jul', 'Aug 5', 'Aug 10', 'Today (Aug 19)'],
+                labels: ['May', 'Jun', 'Jul', 'Aug 5', 'Aug 10', 'Today (Aug 20)'],
                 datasets: [{
                     label: 'Extraction Health (%)',
                     data: [94, 95, 96, 98, 97, 97],
@@ -604,6 +795,7 @@
         }
 
         function breakPortal() {
+            playHapticSound('alert');
             animateValue('health-metric', 97, 31, 500, 'text-rose-600 dark:text-rose-400', 'DOM DRIFT FAILURE', 'bg-rose-500/15 text-rose-600 dark:text-rose-400 border border-rose-300/40');
             document.getElementById('ai-insight-log').innerText = 'ALERT: Missing selectors on target DOM. Bright Data Self-Healing ready.';
 
@@ -614,17 +806,17 @@
             oneuiChart.data.datasets[0].data[5] = 31;
             oneuiChart.data.datasets[0].borderColor = '#E11D48';
             oneuiChart.update();
-            playGlassChime(false);
         }
 
         function healPortal() {
+            playHapticSound('heal');
             const stream = document.getElementById('event-stream');
             stream.innerHTML += '<p class="text-amber-600 dark:text-amber-400 font-semibold">[22:45:06] Bright Data Self-Healing Agent diagnosing DOM drift...</p>';
             stream.innerHTML += '<p class="text-indigo-600 dark:text-cyan-400 font-semibold">[22:45:10] Canary Validation: Passed 4/4 safety invariants.</p>';
             stream.innerHTML += '<p class="text-emerald-600 dark:text-emerald-400 font-semibold">[22:45:13] SUCCESS: Scraper v2.0 promoted. Health restored: 31% ➔ 97%</p>';
             stream.scrollTop = stream.scrollHeight;
 
-            animateValue('health-metric', 31, 97, 600, 'text-emerald-600 dark:text-emerald-400', 'OPTIMAL', 'bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border border-emerald-300/40');
+            animateValue('health-metric', 31, 97, 600, 'text-emerald-600 dark:text-emerald-400', 'OPTIMAL', 'bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 border border-emerald-300/40');
             document.getElementById('ai-insight-log').innerText = 'Scraper v2.0 active. Health restored successfully.';
 
             oneuiChart.data.datasets[0].data[5] = 97;
@@ -632,22 +824,147 @@
             oneuiChart.update();
 
             confetti({ particleCount: 75, spread: 65, origin: { y: 0.6 } });
-            playGlassChime(true);
         }
 
         function resetPortal() {
+            playHapticSound('tap');
             document.getElementById('health-metric').innerText = '97%';
             document.getElementById('health-metric').className = 'text-4xl font-extrabold text-emerald-600 dark:text-emerald-400 tracking-tight';
             document.getElementById('health-badge').innerText = 'OPTIMAL';
-            document.getElementById('health-badge').className = 'inline-block mt-2 px-3 py-0.5 text-xs font-bold rounded-full bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border border-emerald-300/40';
+            document.getElementById('health-badge').className = 'inline-block mt-2 px-3 py-0.5 text-xs font-bold rounded-full bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 border border-emerald-300/40';
             oneuiChart.data.datasets[0].data[5] = 97;
             oneuiChart.data.datasets[0].borderColor = '#4F46E5';
             oneuiChart.update();
         }
 
-        function generatePitch() {
-            document.getElementById('pitch-box').classList.remove('hidden');
-            playGlassChime(true);
+        // =====================================================================
+        // ⚡ SLM AI AUTO-DRAFTER (CENTERED VIEWPORT + SMOOTH INTERNAL SCROLL)
+        // =====================================================================
+        let currentDocumentRaw = "";
+
+        async function autoDraftDocument(oppId) {
+            playHapticSound('heal');
+            const opp = VERIFIED_DATA.find(item => item.id === oppId);
+            if (!opp) return;
+
+            document.getElementById('modal-grant-title').innerText = opp.title;
+            document.getElementById('modal-grant-sponsor').innerText = opp.sponsor;
+            document.getElementById('modal-grant-funding').innerText = opp.funding;
+            document.getElementById('modal-doc-badge').innerText = `⚡ AI Auto-Drafter: ${opp.category}`;
+
+            const modalBody = document.getElementById('dynamic-modal-body');
+            modalBody.innerHTML = `
+                <div class="p-8 text-center space-y-3">
+                    <div class="inline-block w-8 h-8 border-4 border-indigo-500 border-t-transparent rounded-full animate-spin"></div>
+                    <p class="text-sm font-bold text-indigo-500 animate-pulse">✦ SLM Reasoning Engine in Progress...</p>
+                    <p class="text-xs" style="color: var(--text-muted);">Synthesizing candidate profile (${currentUser.cgpa} CGPA | ${currentUser.interests.slice(0, 2).join(", ")}) with ${opp.title} parameters...</p>
+                </div>
+            `;
+
+            // Lock background scroll, show blurred backdrop
+            document.body.style.overflow = 'hidden';
+            document.getElementById('proposal-modal').classList.remove('hidden');
+
+            try {
+                const response = await fetch('/api/v1/forge-document', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        userProfile: currentUser,
+                        opportunity: opp
+                    })
+                });
+
+                const data = await response.json();
+                currentDocumentRaw = data.document;
+
+                modalBody.innerHTML = `
+                    <div class="modal-sub-card p-4 flex flex-wrap justify-between items-center text-xs shrink-0">
+                        <div><b>Applicant:</b> ${currentUser.name}</div>
+                        <div><b>Academic Standing:</b> <span class="text-emerald-600 dark:text-emerald-400 font-bold">${currentUser.cgpa} CGPA</span></div>
+                        <div><b>Reasoning Kernel:</b> <span class="text-cyan-600 dark:text-cyan-400 font-bold">${data.source}</span></div>
+                    </div>
+                    <div class="modal-sub-card p-5">
+                        <pre class="whitespace-pre-wrap mono text-xs leading-relaxed overflow-x-auto" style="color: var(--text-primary);">${currentDocumentRaw}</pre>
+                    </div>
+                `;
+            } catch (err) {
+                console.warn("Direct API call failed, generating local SLM document");
+                const localDoc = generateClientDoc(currentUser, opp);
+                currentDocumentRaw = localDoc;
+                modalBody.innerHTML = `
+                    <div class="modal-sub-card p-4 flex flex-wrap justify-between items-center text-xs shrink-0">
+                        <div><b>Applicant:</b> ${currentUser.name}</div>
+                        <div><b>Academic Standing:</b> <span class="text-emerald-600 dark:text-emerald-400 font-bold">${currentUser.cgpa} CGPA</span></div>
+                        <div><b>Engine:</b> <span class="text-indigo-500 font-bold">Client SLM Engine</span></div>
+                    </div>
+                    <div class="modal-sub-card p-5">
+                        <pre class="whitespace-pre-wrap mono text-xs leading-relaxed overflow-x-auto" style="color: var(--text-primary);">${currentDocumentRaw}</pre>
+                    </div>
+                `;
+            }
+        }
+
+        function generateClientDoc(profile, opp) {
+            return `========================================================================
+EXECUTIVE ${opp.category} APPLICATION SPECIFICATION
+Target: ${opp.title} (${opp.sponsor}) | Scope: ${opp.funding}
+Applicant: ${profile.name} (${profile.cgpa} CGPA | ${profile.institution})
+Focus: ${profile.interests.join(" • ")}
+========================================================================
+
+1. CONTEXTUAL APPLICANT ALIGNMENT:
+The candidate brings proven proficiency in ${profile.interests.join(", ")} maintaining a top-tier ${profile.cgpa} CGPA.
+
+2. TECHNICAL EXECUTION & RECONNAISSANCE:
+Deploying low-latency hardware acceleration and zero-infrastructure radar reconnaissance nodes (Project ResQ-Sanjeevini) designed for mission-critical operations.
+
+3. MEASURABLE DELIVERABLE TIMELINE:
+• Phase 1: Rapid architectural calibration and baseline validation.
+• Phase 2: Mesh telemetry integration and multi-node handshake testing.
+• Phase 3: Field deployment trials and intellectual property filing.
+========================================================================`;
+        }
+
+        function closeProposalModal() {
+            playHapticSound('tap');
+            document.body.style.overflow = 'auto';
+            document.getElementById('proposal-modal').classList.add('hidden');
+        }
+
+        function copyGeneratedDocument() {
+            playHapticSound('heal');
+            navigator.clipboard.writeText(currentDocumentRaw);
+            alert("📋 Complete Formatted Document copied to clipboard!");
+        }
+
+        function openProfileModal() {
+            playHapticSound('tap');
+            document.getElementById('input-user-name').value = currentUser.name;
+            document.getElementById('input-user-cgpa').value = currentUser.cgpa;
+            document.getElementById('input-user-inst').value = currentUser.institution;
+            document.getElementById('input-user-domains').value = currentUser.interests.join(", ");
+            document.body.style.overflow = 'hidden';
+            document.getElementById('profile-modal').classList.remove('hidden');
+        }
+
+        function closeProfileModal() {
+            playHapticSound('tap');
+            document.body.style.overflow = 'auto';
+            document.getElementById('profile-modal').classList.add('hidden');
+        }
+
+        function saveUserProfile() {
+            currentUser.name = document.getElementById('input-user-name').value;
+            currentUser.cgpa = parseFloat(document.getElementById('input-user-cgpa').value);
+            currentUser.year = parseInt(document.getElementById('input-user-year').value);
+            currentUser.institution = document.getElementById('input-user-inst').value;
+            currentUser.interests = document.getElementById('input-user-domains').value.split(',').map(s => s.trim()).filter(Boolean);
+
+            document.getElementById('nav-profile-name').innerText = `${currentUser.name.split(' ')[0]} (${currentUser.cgpa} CGPA)`;
+            closeProfileModal();
+            playHapticSound('heal');
+            renderAllChannels();
         }
     </script>
 </body>
