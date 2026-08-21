@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SentinelHub AI // Enterprise Opportunity Radar</title>
-    <!-- Tailwind CSS -->
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Chart.js -->
+    <!-- Chart.js for Telemetry Spline Charts -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <!-- Canvas Confetti -->
+    <!-- Canvas Confetti for Recovery Celebrations -->
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -33,7 +33,7 @@
             --btn-sec-text: #0F172A;
         }
 
-        /* 🌙 100% Crisp Obsidian Dark Mode */
+        /* 🌙 100% Crisp Obsidian Dark Mode (Forest Backdrop Stays Visible!) */
         body.dark-mode {
             --text-primary: #FFFFFF;
             --text-secondary: #CBD5E1;
@@ -63,7 +63,7 @@
             transition: color 0.3s ease;
         }
 
-        /* 🌲 Sunlit Forest Canopy Background */
+        /* 🌲 High-Resolution Sunlit Forest Canvas */
         .scenic-bg {
             position: fixed;
             top: 0;
@@ -210,7 +210,7 @@
                 <div>
                     <div class="flex items-center gap-2.5">
                         <h1 class="text-2xl font-black tracking-tight" style="color: var(--text-primary);">SentinelHub AI</h1>
-                        <span class="px-3 py-0.5 rounded-full text-xs font-bold bg-indigo-500/15 text-indigo-600 dark:text-indigo-400 border border-indigo-300/40">SLM Intelligence v6.0</span>
+                        <span class="px-3 py-0.5 rounded-full text-xs font-bold bg-indigo-500/15 text-indigo-600 dark:text-indigo-400 border border-indigo-300/40">SLM Intelligence v6.5</span>
                     </div>
                     <p class="text-xs font-semibold" style="color: var(--text-secondary);">Autonomous Opportunity Radar • Powered by Google Gemini SLM & Bright Data</p>
                 </div>
@@ -218,6 +218,7 @@
 
             <!-- Controls & Profile Trigger -->
             <div class="flex items-center gap-3">
+                <!-- Theme Toggle Button -->
                 <button onclick="toggleTheme()" class="island-nav px-4 py-2 flex items-center gap-2 text-xs font-bold shadow-sm hover:scale-105 transition-all" style="color: var(--text-primary);">
                     <span id="theme-icon">🌙</span> <span id="theme-label" class="hidden sm:inline">Dark Glass</span>
                 </button>
@@ -226,7 +227,7 @@
                     <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span> Live SLM Stream
                 </span>
 
-                <!-- CLICKABLE USER PROFILE BADGE -->
+                <!-- Profile Customizer Modal Trigger -->
                 <button onclick="openProfileModal()" class="text-xs font-bold bg-white/40 dark:bg-white/10 px-4 py-1.5 rounded-full border border-white/40 shadow-sm hover:scale-105 transition-all flex items-center gap-1.5" style="color: var(--text-primary);">
                     <span>👤</span> <span id="nav-profile-name">Charan (9.6 CGPA)</span> <span class="text-indigo-500 text-xs">✏️</span>
                 </button>
@@ -257,7 +258,7 @@
             </div>
         </div>
 
-        <!-- 🔍 SEARCH BAR -->
+        <!-- 🔍 INSTANT SEMANTIC SEARCH BAR -->
         <div class="flex justify-center mb-6">
             <div class="island-nav px-5 py-2.5 w-full max-w-xl flex items-center gap-3 shadow-md">
                 <span class="text-indigo-500 text-base">🔍</span>
@@ -265,20 +266,20 @@
                     type="text"
                     id="global-search"
                     oninput="filterOpportunities()"
-                    placeholder="Instant Semantic Search (e.g. 'Microsoft', 'Robotics', '10 Lakh', 'Mitacs')..."
+                    placeholder="Instant Search across grants, internships & hackathons ('Microsoft', '10 Lakh', 'Mitacs')..."
                     class="bg-transparent border-none outline-none w-full text-xs font-semibold placeholder-slate-400"
                     style="color: var(--text-primary);">
             </div>
         </div>
 
-        <!-- 🌟 FLOATING PILL NAVBAR (OUTREACH TAB REMOVED!) -->
+        <!-- 🌟 FLOATING PILL NAVBAR (Outreach Cleanly Removed!) -->
         <div class="flex justify-center mb-8">
             <div class="island-nav p-1.5 flex flex-wrap justify-center gap-1.5">
                 <button onclick="switchTab('dashboard')" id="tab-dashboard" class="tab-btn active px-5 py-2 rounded-full text-xs font-bold transition-all border border-transparent">✦ Sentinel AI</button>
-                <button onclick="switchTab('hackathons')" id="tab-hackathons" class="tab-btn px-5 py-2 rounded-full text-xs font-bold transition-all border border-transparent">🏆 Hackathons</button>
-                <button onclick="switchTab('grants')" id="tab-grants" class="tab-btn px-5 py-2 rounded-full text-xs font-bold transition-all border border-transparent">🔬 Grants</button>
-                <button onclick="switchTab('internships')" id="tab-internships" class="tab-btn px-5 py-2 rounded-full text-xs font-bold transition-all border border-transparent">💼 Internships</button>
-                <button onclick="switchTab('sentinel')" id="tab-sentinel" class="tab-btn px-5 py-2 rounded-full text-xs font-bold transition-all border border-transparent">📡 Self-Healing Engine</button>
+                <button onclick="switchTab('hackathons')" id="tab-hackathons" class="tab-btn px-4 py-2 rounded-full text-xs font-bold transition-all border border-transparent">🏆 Hackathons</button>
+                <button onclick="switchTab('grants')" id="tab-grants" class="tab-btn px-4 py-2 rounded-full text-xs font-bold transition-all border border-transparent">🔬 Grants</button>
+                <button onclick="switchTab('internships')" id="tab-internships" class="tab-btn px-4 py-2 rounded-full text-xs font-bold transition-all border border-transparent">💼 Internships</button>
+                <button onclick="switchTab('sentinel')" id="tab-sentinel" class="tab-btn px-4 py-2 rounded-full text-xs font-bold transition-all border border-transparent">📡 Self-Healing Engine</button>
             </div>
         </div>
 
@@ -304,7 +305,7 @@
                 </div>
 
                 <div class="frosted-inner-box mt-6 text-xs mono">
-                    <p class="text-indigo-600 dark:text-cyan-400 font-bold mb-1">// Bright Data Status:</p>
+                    <p class="text-indigo-600 dark:text-cyan-400 font-bold mb-1">// Bright Data Collector:</p>
                     <p id="ai-insight-log" style="color: var(--text-secondary);">Collector c_mt0bxaoi1yl2y39685 active. Ingestion verified.</p>
                 </div>
             </div>
@@ -383,83 +384,88 @@
             </div>
         </div>
 
-        <!-- 📄 VIEWPORT-LOCKED SLM AUTO-DRAFTER MODAL (PERFECT CENTER + INTERNAL SCROLL) -->
-        <div id="proposal-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/65 backdrop-blur-md">
-            <div class="modal-sheet w-full max-w-4xl p-6 sm:p-8 my-auto max-h-[85vh] flex flex-col relative shadow-2xl">
-                <!-- Header (Fixed at top) -->
-                <div class="flex justify-between items-start pb-4 border-b border-slate-200 dark:border-white/15 mb-4 shrink-0">
-                    <div>
-                        <span id="modal-doc-badge" class="px-3 py-1 rounded-full text-xs font-extrabold bg-indigo-600 text-white">⚡ AI Auto-Drafter</span>
-                        <h2 id="modal-grant-title" class="text-2xl font-black mt-2" style="color: var(--text-primary);">Opportunity Title</h2>
-                        <p class="text-xs font-semibold mt-1" style="color: var(--text-secondary);">Sponsor: <span id="modal-grant-sponsor" class="font-bold text-indigo-600 dark:text-cyan-400">Official</span> | Scope: <span id="modal-grant-funding" class="text-emerald-600 dark:text-emerald-400 font-bold">₹10,00,000</span></p>
-                    </div>
-                    <button onclick="closeProposalModal()" class="font-bold text-2xl px-3 py-1 rounded-xl modal-sub-card hover:scale-105 transition-all" style="color: var(--text-primary);">✕</button>
-                </div>
-
-                <!-- Scrollable Body (Internal scroll only) -->
-                <div id="dynamic-modal-body" class="space-y-4 text-sm overflow-y-auto pr-2 flex-1 custom-scroll" style="color: var(--text-primary);"></div>
-
-                <!-- Footer (Fixed at bottom) -->
-                <div class="flex flex-col sm:flex-row justify-between items-center mt-4 pt-4 border-t border-slate-200 dark:border-white/15 gap-4 shrink-0">
-                    <span class="text-xs font-semibold" style="color: var(--text-muted);">Engineered by <b class="text-indigo-600 dark:text-cyan-400">Sentinel SLM Reasoning Kernel</b></span>
-                    <div class="flex gap-3">
-                        <button onclick="copyGeneratedDocument()" class="btn-glow px-5 py-2.5 text-xs font-bold rounded-xl flex items-center gap-2">
-                            <span>📋</span> <span>Copy Document</span>
-                        </button>
-                        <button onclick="closeProposalModal()" class="modal-sub-card px-5 py-2.5 text-xs font-bold rounded-xl hover:scale-105 transition-all" style="color: var(--text-primary);">
-                            Close
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- 👤 CANDIDATE PROFILE & INTEREST ONBOARDING MODAL -->
-        <div id="profile-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/65 backdrop-blur-md">
-            <div class="modal-sheet w-full max-w-lg p-7 relative">
-                <div class="flex justify-between items-center pb-4 border-b border-slate-200 dark:border-white/15 mb-5">
-                    <h3 class="text-xl font-extrabold" style="color: var(--text-primary);">👤 Candidate Profile & Focus</h3>
-                    <button onclick="closeProfileModal()" class="font-bold text-xl px-2" style="color: var(--text-primary);">✕</button>
-                </div>
-                <div class="space-y-4 text-xs">
-                    <div>
-                        <label class="block font-bold mb-1" style="color: var(--text-secondary);">Full Name</label>
-                        <input id="input-user-name" type="text" value="Kotta Charan Ram Sai" class="w-full p-2.5 rounded-xl modal-sub-card font-semibold outline-none focus:border-indigo-500" style="color: var(--text-primary);">
-                    </div>
-                    <div class="grid grid-cols-2 gap-3">
-                        <div>
-                            <label class="block font-bold mb-1" style="color: var(--text-secondary);">Cumulative CGPA</label>
-                            <input id="input-user-cgpa" type="number" step="0.01" value="9.60" class="w-full p-2.5 rounded-xl modal-sub-card font-semibold outline-none focus:border-indigo-500" style="color: var(--text-primary);">
-                        </div>
-                        <div>
-                            <label class="block font-bold mb-1" style="color: var(--text-secondary);">Year of Study</label>
-                            <select id="input-user-year" class="w-full p-2.5 rounded-xl modal-sub-card font-semibold outline-none" style="color: var(--text-primary);">
-                                <option value="2" selected>2nd Year (Semester 3)</option>
-                                <option value="3">3rd Year</option>
-                                <option value="4">4th Year</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div>
-                        <label class="block font-bold mb-1" style="color: var(--text-secondary);">University / Institution</label>
-                        <input id="input-user-inst" type="text" value="SRM Institute of Science and Technology (KTR)" class="w-full p-2.5 rounded-xl modal-sub-card font-semibold outline-none" style="color: var(--text-primary);">
-                    </div>
-                    <div>
-                        <label class="block font-bold mb-1" style="color: var(--text-secondary);">Custom Focus & Domain Tags (Comma Separated)</label>
-                        <input id="input-user-domains" type="text" value="Edge AI, Robotics, Embedded Systems, Hardware/IoT, Low-Latency C++" class="w-full p-2.5 rounded-xl modal-sub-card font-semibold outline-none" style="color: var(--text-primary);">
-                        <p class="text-xs mt-1" style="color: var(--text-muted);">The SLM uses these tags to calculate semantic match confidence.</p>
-                    </div>
-                </div>
-                <div class="flex justify-end gap-3 mt-6 pt-4 border-t border-slate-200 dark:border-white/15">
-                    <button onclick="saveUserProfile()" class="btn-glow px-5 py-2 text-xs font-bold rounded-xl">Save & Recalculate SLM</button>
-                </div>
-            </div>
-        </div>
-
     </div>
 
-    <!-- JAVASCRIPT ENGINE -->
+    <!-- ================================================================= -->
+    <!-- 📄 MODALS (CENTERED IN VIEWPORT & INTERNAL SCROLLING) -->
+    <!-- ================================================================= -->
+
+    <!-- ⚡ AI AUTO-DRAFTER MODAL -->
+    <div id="proposal-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/65 backdrop-blur-md">
+        <div class="modal-sheet w-full max-w-4xl p-6 sm:p-8 my-auto max-h-[85vh] flex flex-col relative shadow-2xl">
+            <!-- Fixed Header -->
+            <div class="flex justify-between items-start pb-4 border-b border-slate-200 dark:border-white/15 mb-4 shrink-0">
+                <div>
+                    <span id="modal-doc-badge" class="px-3 py-1 rounded-full text-xs font-extrabold bg-indigo-600 text-white">⚡ AI Auto-Drafter</span>
+                    <h2 id="modal-grant-title" class="text-2xl font-black mt-2" style="color: var(--text-primary);">Opportunity Title</h2>
+                    <p class="text-xs font-semibold mt-1" style="color: var(--text-secondary);">Sponsor: <span id="modal-grant-sponsor" class="font-bold text-indigo-600 dark:text-cyan-400">Official</span> | Scope: <span id="modal-grant-funding" class="text-emerald-600 dark:text-emerald-400 font-bold">₹10,00,000</span></p>
+                </div>
+                <button onclick="closeProposalModal()" class="font-bold text-2xl px-3 py-1 rounded-xl modal-sub-card hover:scale-105 transition-all" style="color: var(--text-primary);">✕</button>
+            </div>
+
+            <!-- Scrollable Body (Internal scroll only, never clipped) -->
+            <div id="dynamic-modal-body" class="space-y-4 text-sm overflow-y-auto pr-2 flex-1 custom-scroll" style="color: var(--text-primary);"></div>
+
+            <!-- Fixed Footer -->
+            <div class="flex flex-col sm:flex-row justify-between items-center mt-4 pt-4 border-t border-slate-200 dark:border-white/15 gap-4 shrink-0">
+                <span class="text-xs font-semibold" style="color: var(--text-muted);">Engineered by <b class="text-indigo-600 dark:text-cyan-400">Sentinel SLM Reasoning Kernel</b></span>
+                <div class="flex gap-3">
+                    <button onclick="copyGeneratedDocument()" class="btn-glow px-5 py-2.5 text-xs font-bold rounded-xl flex items-center gap-2">
+                        <span>📋</span> <span>Copy Document</span>
+                    </button>
+                    <button onclick="closeProposalModal()" class="modal-sub-card px-5 py-2.5 text-xs font-bold rounded-xl hover:scale-105 transition-all" style="color: var(--text-primary);">
+                        Close
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 👤 PROFILE ONBOARDING & TAGS MODAL -->
+    <div id="profile-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/65 backdrop-blur-md">
+        <div class="modal-sheet w-full max-w-lg p-7 relative">
+            <div class="flex justify-between items-center pb-4 border-b border-slate-200 dark:border-white/15 mb-5">
+                <h3 class="text-xl font-extrabold" style="color: var(--text-primary);">👤 Candidate Profile & Focus</h3>
+                <button onclick="closeProfileModal()" class="font-bold text-xl px-2" style="color: var(--text-primary);">✕</button>
+            </div>
+            <div class="space-y-4 text-xs">
+                <div>
+                    <label class="block font-bold mb-1" style="color: var(--text-secondary);">Full Name</label>
+                    <input id="input-user-name" type="text" value="Kotta Charan Ram Sai" class="w-full p-2.5 rounded-xl modal-sub-card font-semibold outline-none focus:border-indigo-500" style="color: var(--text-primary);">
+                </div>
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block font-bold mb-1" style="color: var(--text-secondary);">Cumulative CGPA</label>
+                        <input id="input-user-cgpa" type="number" step="0.01" value="9.60" class="w-full p-2.5 rounded-xl modal-sub-card font-semibold outline-none focus:border-indigo-500" style="color: var(--text-primary);">
+                    </div>
+                    <div>
+                        <label class="block font-bold mb-1" style="color: var(--text-secondary);">Year of Study</label>
+                        <select id="input-user-year" class="w-full p-2.5 rounded-xl modal-sub-card font-semibold outline-none" style="color: var(--text-primary);">
+                            <option value="2" selected>2nd Year (Semester 3)</option>
+                            <option value="3">3rd Year</option>
+                            <option value="4">4th Year</option>
+                        </select>
+                    </div>
+                </div>
+                <div>
+                    <label class="block font-bold mb-1" style="color: var(--text-secondary);">University / Institution</label>
+                    <input id="input-user-inst" type="text" value="SRM Institute of Science and Technology (KTR)" class="w-full p-2.5 rounded-xl modal-sub-card font-semibold outline-none" style="color: var(--text-primary);">
+                </div>
+                <div>
+                    <label class="block font-bold mb-1" style="color: var(--text-secondary);">Custom Focus & Domain Tags (Comma Separated)</label>
+                    <input id="input-user-domains" type="text" value="Edge AI, Robotics, Embedded Systems, Hardware/IoT, Low-Latency C++" class="w-full p-2.5 rounded-xl modal-sub-card font-semibold outline-none" style="color: var(--text-primary);">
+                    <p class="text-xs mt-1" style="color: var(--text-muted);">The SLM uses these tags to calculate semantic match scores dynamically.</p>
+                </div>
+            </div>
+            <div class="flex justify-end gap-3 mt-6 pt-4 border-t border-slate-200 dark:border-white/15">
+                <button onclick="saveUserProfile()" class="btn-glow px-5 py-2 text-xs font-bold rounded-xl">Save & Recalculate SLM</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGICAL ENGINE -->
     <script>
+        // Candidate Vector Profile State
         let currentUser = {
             name: "Kotta Charan Ram Sai",
             cgpa: 9.60,
@@ -469,6 +475,7 @@
             interests: ["Edge AI", "Robotics", "Embedded Systems", "Hardware/IoT", "Low-Latency C++"]
         };
 
+        // 🎵 Synthesized Web Audio & Haptics Engine
         function playHapticSound(type) {
             if ('vibrate' in navigator) {
                 if (type === 'alert') navigator.vibrate([40, 50, 40]);
@@ -509,18 +516,21 @@
             } catch(e) {}
         }
 
+        // ☀️ / 🌙 Theme Toggle
         function toggleTheme() {
             const isDark = document.body.classList.toggle('dark-mode');
             document.getElementById('theme-icon').innerText = isDark ? '☀️' : '🌙';
             document.getElementById('theme-label').innerText = isDark ? 'Light Glass' : 'Dark Glass';
             playHapticSound(isDark ? 'heal' : 'tap');
 
+            // Sync Chart.js Colors
             oneuiChart.options.scales.y.ticks.color = isDark ? '#CBD5E1' : '#64748B';
             oneuiChart.options.scales.x.ticks.color = isDark ? '#CBD5E1' : '#64748B';
             oneuiChart.options.scales.y.grid.color = isDark ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.05)';
             oneuiChart.update();
         }
 
+        // Mouse Spotlight
         window.addEventListener('mousemove', (e) => {
             document.documentElement.style.setProperty('--mouse-x', `${e.clientX}px`);
             document.documentElement.style.setProperty('--mouse-y', `${e.clientY}px`);
@@ -537,6 +547,7 @@
             playHapticSound('tap');
         }
 
+        // Real-Time Search & Filter
         function filterOpportunities() {
             const query = document.getElementById('global-search').value.toLowerCase();
             const cards = document.querySelectorAll('#hackathons-grid > div, #grants-container > div, #internships-grid > div');
@@ -552,6 +563,7 @@
             });
         }
 
+        // Verified Opportunity Dataset
         const VERIFIED_DATA = [
             {
                 "id": "UNSTOP-SIH-2026",
@@ -651,6 +663,7 @@
             }
         ];
 
+        // Semantic Match Calculator
         function computeMatchScore(oppDomains, userDomains, minCgpa, userCgpa) {
             let score = 50;
             if (userCgpa >= minCgpa) score += 25;
@@ -662,7 +675,7 @@
         function renderAllChannels() {
             document.getElementById('portal-count').innerText = `${VERIFIED_DATA.length} Live`;
             document.getElementById('ai-insight-desc').innerHTML =
-                `Sentinel AI verified <b>${VERIFIED_DATA.length} live opportunities</b> with 100% evidence provenance across Unstop, Mitacs, and Microsoft portals.`;
+                `Sentinel AI actively verified <b>${VERIFIED_DATA.length} live opportunities</b> with 100% evidence provenance across Unstop, Mitacs, and Microsoft portals.`;
 
             // 1. Hackathons
             const hackathonsGrid = document.getElementById('hackathons-grid');
@@ -708,7 +721,7 @@
                     <div class="frosted-inner-box mono text-xs space-y-1.5 mb-4">
                         <p class="text-indigo-600 dark:text-cyan-400 font-bold text-sm">🔬 Cryptographic Evidence Chain (Source Proof):</p>
                         <p style="color: var(--text-primary);">• Quote: "${g.quote}"</p>
-                        <p class="text-xs" style="color: var(--text-muted);">• Verified At: 2026-08-20 22:45:00</p>
+                        <p class="text-xs" style="color: var(--text-muted);">• Verified At: 2026-08-21 22:45:00</p>
                     </div>
                     <div class="flex flex-wrap justify-between items-center gap-2 pt-2 border-t border-slate-200/60 dark:border-white/10">
                         <a href="${g.url}" target="_blank" class="px-4 py-2 rounded-xl text-xs font-bold btn-sec flex items-center gap-1">Official Portal ↗</a>
@@ -749,7 +762,7 @@
         const oneuiChart = new Chart(ctx, {
             type: 'line',
             data: {
-                labels: ['May', 'Jun', 'Jul', 'Aug 5', 'Aug 10', 'Today (Aug 20)'],
+                labels: ['May', 'Jun', 'Jul', 'Aug 5', 'Aug 10', 'Today (Aug 21)'],
                 datasets: [{
                     label: 'Extraction Health (%)',
                     data: [94, 95, 96, 98, 97, 97],
@@ -838,7 +851,7 @@
         }
 
         // =====================================================================
-        // ⚡ SLM AI AUTO-DRAFTER (CENTERED VIEWPORT + SMOOTH INTERNAL SCROLL)
+        // ⚡ SLM AI AUTO-DRAFTER (VIEWPORT CENTERED + CLEAN INTERNAL SCROLL)
         // =====================================================================
         let currentDocumentRaw = "";
 
@@ -861,7 +874,7 @@
                 </div>
             `;
 
-            // Lock background scroll, show blurred backdrop
+            // Lock background scrolling and display centered modal
             document.body.style.overflow = 'hidden';
             document.getElementById('proposal-modal').classList.remove('hidden');
 
@@ -906,24 +919,84 @@
         }
 
         function generateClientDoc(profile, opp) {
-            return `========================================================================
-EXECUTIVE ${opp.category} APPLICATION SPECIFICATION
-Target: ${opp.title} (${opp.sponsor}) | Scope: ${opp.funding}
-Applicant: ${profile.name} (${profile.cgpa} CGPA | ${profile.institution})
-Focus: ${profile.interests.join(" • ")}
+            if (opp.category === 'GRANT') {
+                return `========================================================================
+EXECUTIVE TECHNICAL GRANT PROPOSAL & DEFENSE SPECIFICATION
+Target Scheme: ${opp.title} (${opp.sponsor}) | Scope: ${opp.funding}
+Lead Investigator: ${profile.name} (${profile.cgpa} CGPA | ${profile.institution})
+Domain Specialization: ${profile.interests.join(" • ")}
 ========================================================================
 
-1. CONTEXTUAL APPLICANT ALIGNMENT:
-The candidate brings proven proficiency in ${profile.interests.join(", ")} maintaining a top-tier ${profile.cgpa} CGPA.
+1. PROBLEM FORMULATION & SOCIETAL IMPACT:
+During structural collapses and disaster scenarios, emergency first responders face critical zero-visibility dead zones where traditional GPS and Wi-Fi fail completely. Firefighters waste the essential 'Golden Hour' unable to confirm if living victims are trapped behind dense concrete barriers.
 
-2. TECHNICAL EXECUTION & RECONNAISSANCE:
-Deploying low-latency hardware acceleration and zero-infrastructure radar reconnaissance nodes (Project ResQ-Sanjeevini) designed for mission-critical operations.
+2. TECHNICAL INNOVATION & SYSTEM ARCHITECTURE (Project ResQ-Sanjeevini):
+• Sensory Layer: 24GHz mmWave Micro-Doppler Radar isolating 0.2Hz lung expansion through solid barriers.
+• Edge Kernel: ESP32-S3 microcontroller executing real-time digital filtering and MPU6050 slap-scan impact triggering.
+• Mesh Relay: Sub-GHz LoRa (433MHz) transceiver routing telemetry to commanders without external infrastructure.
 
-3. MEASURABLE DELIVERABLE TIMELINE:
-• Phase 1: Rapid architectural calibration and baseline validation.
-• Phase 2: Mesh telemetry integration and multi-node handshake testing.
-• Phase 3: Field deployment trials and intellectual property filing.
+3. ITEMIZED PROTOTYPE BILL OF MATERIALS (BOM):
+• ESP32-S3 Dual-Core SoC: INR 800
+• 24GHz mmWave Radar Sensor: INR 350
+• LoRa Transceiver Module (433MHz): INR 450
+• Tactile Haptic Vibration & 0.96" OLED HUD: INR 350
+• Flame-Resistant 3D Tactical Chassis: INR 200
+TOTAL ESTIMATED PROTOTYPE BOM: ~INR 2,150 ($26 USD).
+
+4. MEASURABLE DELIVERABLE TIMELINE:
+• Month 1: Bench testing through-wall breathing detection across 20cm concrete barriers.
+• Month 2: Full integration of Sub-GHz LoRa telemetry with tactical incident mapping.
+• Month 3: Live field validation with civil defense teams & filing of intellectual property.
 ========================================================================`;
+            } else if (opp.category === 'INTERNSHIP' || opp.category === 'FELLOWSHIP') {
+                return `========================================================================
+ATS-OPTIMIZED TECHNICAL APPLICATION & COMPETENCY PITCH
+Target Opportunity: ${opp.title} (${opp.sponsor})
+Candidate: ${profile.name} | B.Tech ${profile.department} @ ${profile.institution}
+Academic Merit: ${profile.cgpa} / 10.0 CGPA | Year of Study: Year ${profile.year}
+========================================================================
+
+Dear Selection Committee / Hiring Lead at ${opp.sponsor},
+
+I am writing to express my strong interest in the ${opp.title}. As an engineering student maintaining a ${profile.cgpa} CGPA, I bring a unique systems capability:
+
+1. CORE TECHNICAL EXPERTISE & ALIGNMENT:
+• Low-Level Systems: C++20, Linux (WSL2), FreeRTOS, Thread Safety (Mutexes, Lock-Free Atomics).
+• Applied Specialization: ${profile.interests.join(", ")}.
+• Web Intelligence & Reliability: Building self-healing data pipelines powered by Bright Data Web Unlocker.
+
+2. DEFENSIVE PROOF OF WORK:
+• ResQ-Sanjeevini: Award-winning offline disaster rescue node detecting human vitals through concrete walls.
+• SentinelHub AI: Self-healing web intelligence radar monitoring national funding calls.
+• Duke University Certified: Programming Fundamentals in C with verified credential.
+
+I would love to bring this execution speed to your team for Summer 2026.
+
+Sincerely,
+${profile.name}
+GitHub: github.com/charankotta32-star | LinkedIn: linkedin.com/in/charan-kotta
+========================================================================`;
+            } else {
+                return `========================================================================
+HACKATHON EXECUTION BLUEPRINT & MVP PITCH
+Event: ${opp.title} (${opp.sponsor}) | Prize Scope: ${opp.funding}
+Team Lead: ${profile.name} (${profile.cgpa} CGPA | ${profile.institution})
+Domain Stack: ${profile.interests.join(", ")}
+========================================================================
+
+1. PROBLEM STATEMENT & UNFAIR ADVANTAGE:
+Traditional student submissions build generic web clones. Our team focuses on physical Edge-AI and fault-tolerant web intelligence solving pressing national challenges with measurable real-world utility.
+
+2. 24-HOUR HACKATHON MVP SCOPE:
+• Phase 1 (0–6 Hrs): Ingestion pipeline & sensor driver initialization.
+• Phase 2 (6–14 Hrs): Algorithmic engine & signal DSP filtering.
+• Phase 3 (14–20 Hrs): Liquid Glass Control Plane with real-time feedback.
+• Phase 4 (20–24 Hrs): Live deterministic break-and-heal demo testing & video production.
+
+3. TECH STACK:
+Python 3.11, C++20, Node.js Express, Google Gemini Flash SLM, Tailwind CSS.
+========================================================================`;
+            }
         }
 
         function closeProposalModal() {
@@ -935,9 +1008,10 @@ Deploying low-latency hardware acceleration and zero-infrastructure radar reconn
         function copyGeneratedDocument() {
             playHapticSound('heal');
             navigator.clipboard.writeText(currentDocumentRaw);
-            alert("📋 Complete Formatted Document copied to clipboard!");
+            alert("📋 Document copied to clipboard!");
         }
 
+        // Profile Editor Modal
         function openProfileModal() {
             playHapticSound('tap');
             document.getElementById('input-user-name').value = currentUser.name;
